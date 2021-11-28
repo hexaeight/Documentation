@@ -1,6 +1,6 @@
-
-* TOC
-{:toc}
+|    :----:   |
+|  * TOC |
+|  {:toc} |
 
 # Introduction
 
@@ -69,8 +69,9 @@ price which can outbeat the cost if you use the Private Datasink.
 > to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are accessible 
 > to anyone if they know the drop point location.
 
+# HexaEight Serverless
 
-# Install
+## Quick Install
 
 In order to install the Server Side Code base, you need access to your Cloud Flare account and have the ablility 
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
@@ -92,7 +93,7 @@ How To Deploy
 Follow the Instructions available @ https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template 
 under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
 
-# Metrics
+## Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
 however it is important to understand the number of times a worker is called to complete HexaEight login process.
@@ -166,7 +167,7 @@ background service that extends the cookie expiration instead of calling the wor
 > and receive an new JWT extended by one hour.  You can then call the `Fetch Cookie User` end point to verify the extended JWT.
 
 
-# Logs
+## Logs
 
 HexaEight Serverless logs the email address of any user who attempts to login to your application in a KV namespace on 
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
