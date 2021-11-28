@@ -1,6 +1,5 @@
-|    :----:   |
-|  * TOC |
-|  {:toc} |
+* TOC
+{:toc}
 
 # Introduction
 
