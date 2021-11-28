@@ -1,4 +1,6 @@
-name: ""
-title: null
 
 theme: jekyll-theme-minimal
+title: HexaEight Documentation
+description: Documentation
+logo: https://www.hexaeight.com/assets/images/helogo-178x79.jpg
+show_downloads: false
