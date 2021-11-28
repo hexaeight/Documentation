@@ -1,7 +1,6 @@
-| :---        |    :----:   |          ---: |
-| [Components](#introduction)      | [What Are DataSinks](#datasinks)     | [Customizing Your Login Page](#Customize)   |
 
-   
+* TOC
+{:toc}
 
 # Introduction
 
