@@ -2,33 +2,33 @@
 {:toc}
 
 
- # Introduction
+# Introduction
 
- HexaEight Serverless is a Cloud Solution for implementing Domain Wide authentication 
- for Websites and Web Applications using a Custom Domain name.
+HexaEight Serverless is a Cloud Solution for implementing Domain Wide authentication 
+for Websites and Web Applications using a Custom Domain name.
 
- HexaEight Token Service is an On Premisis Solution for protecting 
- resources Applications using Access and Refresh tokens similar to OAuth2.
+HexaEight Token Service is an On Premisis Solution for protecting 
+resources Applications using Access and Refresh tokens similar to OAuth2.
 
- HexaEight Authentication has four Components
+HexaEight Authentication has four Components
 
  1.  Server Side Code Base
  2.  Client Side Code Base
  3.  Data Sinks
  4.  Mobile Application
 
- > Server side code base: The Server side code base which performs the authentication is 
- > implemented as a Serverless Function and is currently available for CloudFlare Workers. 
- > The Server side code base for Cloudflare Worker is written in Javascript and implemented in a Cloudflare Worker
- >
- > Client Side Code Base: The Client side code base which endorses the client application is also 
- > written in Javascript and needs to be included on any web page 
- > that needs to incorporate HexaEight Serverless authentication.
- >
- >Data Sinks : Datasinks are drop points that should be accessible to the Mobile Applicaton 
- >as well as to the Server Side Code Base in order to transfer an 
- >encrypted token.
- >
+> Server side code base: The Server side code base which performs the authentication is 
+> implemented as a Serverless Function and is currently available for CloudFlare Workers. 
+> The Server side code base for Cloudflare Worker is written in Javascript and implemented in a Cloudflare Worker
+>
+> Client Side Code Base: The Client side code base which endorses the client application is also 
+> written in Javascript and needs to be included on any web page 
+> that needs to incorporate HexaEight Serverless authentication.
+>
+>Data Sinks : Datasinks are drop points that should be accessible to the Mobile Applicaton 
+>as well as to the Server Side Code Base in order to transfer an 
+>encrypted token.
+>
 > Mobile Application : Our Native Mobile Application HexaEight Authenticator is used by the user to Login to your application.
 
 In order to implement HexaEight Serverless in your Environment, you will need to install the Server Side Code Base 
