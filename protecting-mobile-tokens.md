@@ -1,7 +1,3 @@
-<!--ts-->
-[Best Practices](#Best Practices)
-<!--te-->
-
 # Best Practices To Protect Authentication Tokens Generated In HexaEight Authenticator
 
 We outline the best practices for users to follow when using our Mobile Application so that 
