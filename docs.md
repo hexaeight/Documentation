@@ -1,3 +1,7 @@
+* TOC
+{:toc}
+
+
 # Introduction
 
 HexaEight Serverless is a Cloud Solution for implementing Domain Wide authentication 
@@ -201,7 +205,8 @@ CookieExtensionSuccess : JWT insode the cookie was extended successfully by one 
 
 > Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, 
 > will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will
-> never be able to see any Log of unauthorizied user attempts since our platform handles it and doesent even let that request reach your Domain.
+> never be able to see any Log of unauthorizied user attempts without email addresses since our platform handles it and 
+> doesent even let that request reach your Domain.
 
 * * *
 
@@ -227,7 +232,7 @@ Change the servername to your preferred subdomain and the redirecturl to any suc
 ```
 And your custom login page should be ready.
 
-!Important
+***Important***
 
 > The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml 
 > where as the above servername setting is the subdomain where this custom login page is being displayed.
