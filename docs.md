@@ -69,8 +69,9 @@ price which can outbeat the cost if you use the Private Datasink.
 > to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are accessible 
 > to anyone if they know the drop point location.
 
+# HexaEight Serverless
 
-# Install
+## Install
 
 In order to install the Server Side Code base, you need access to your Cloud Flare account and have the ablility 
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
@@ -92,7 +93,7 @@ How To Deploy
 Follow the Instructions available @ https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template 
 under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
 
-# Metrics
+## Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
 however it is important to understand the number of times a worker is called to complete HexaEight login process.
@@ -126,19 +127,25 @@ HexaEight Serverless sets the below three cookies after a user has logged into y
 
 >     hexaeightsessionid : codechallenge
 >
-> Example :  
-> >     hexaeightsessionid:xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA
+>     Example :  
+>     hexaeightsessionid:xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA
 > 
+
 > Hexaeightsessionid cookie contains the code challenge presented by the Client Application to the Server Server side code base. 
 > You can use this code challenge like in a PKCE authorization to verify the authenticity of the JWT token which is available in the hexaeighttoken. It is very useful to deploy this
 > kind of check in an external service to verify the authenticity of the JWT token before allowing access to the service. 
+
 >
 >     hexaeighttoken : JSON Web Token
-> Hexaeighttoken contains the JSON Web Token containing the user identity and can only be decoded by calling 
-> HexaEight `Fetch Cookie User` API Endpoint  https://hexaeight-sso-platform.p.rapidapi.com/get-cookieuser
->
+
+Hexaeighttoken contains the JSON Web Token containing the user identity and can only be decoded by calling 
+HexaEight `Fetch Cookie User` API Endpoint 
+
+>     https://hexaeight-sso-platform.p.rapidapi.com/get-cookieuser
+
 > The code snippets to implement Fetch Cookie User for various languages is available 
 > at https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform
+
 >
 >        { iss : auth.hexaeight.com, 
 >        user: user@domain.dom,
@@ -150,12 +157,13 @@ HexaEight Serverless sets the below three cookies after a user has logged into y
 >        nbf: 1638083923,
 >        exp: 27301459}
 
-The above decrypted information is available after a successful call to `Fetch Cookie User` EndPoint
+> The above decrypted information is available after a successful call to `Fetch Cookie User` EndPoint
 
 >      hexaeightuserinfo:user@domain.dom:1638087540000 
->
-> HexaEightuserinfo cookie contains information about the user logged in along with expiry time in unixtime milliseconds.  
-> If you do not want to call Worker token endpoint you can use this value to determine the cookie expiry time before which the session needs to be extended. 
+
+
+HexaEightuserinfo cookie contains information about the user logged in along with expiry time in unixtime milliseconds.  
+If you do not want to call Worker token endpoint you can use this value to determine the cookie expiry time before which the session needs to be extended. 
 
 JWT Expiry:  The cookie set by HexaEight Serverless expires exactly at the same time when the cookie expires.  At times you might wish to use the JWT directly
 in an external or internal service to keep the user logged in to perform some background tasks on behalf of the user. So it may be viable for you to implement a 
