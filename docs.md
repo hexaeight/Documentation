@@ -19,19 +19,19 @@ HexaEight Authentication has four Components
  3.  Data Sinks
  4.  Mobile Application
 
-> Server side code base: The Server side code base which performs the authentication is 
-> implemented as a Serverless Function and is currently available for CloudFlare Workers. 
-> The Server side code base for Cloudflare Worker is written in Javascript and implemented in a Cloudflare Worker
->
-> Client Side Code Base: The Client side code base which endorses the client application is also 
-> written in Javascript and needs to be included on any web page 
-> that needs to incorporate HexaEight Serverless authentication.
->
->Data Sinks : Datasinks are drop points that should be accessible to the Mobile Applicaton 
->as well as to the Server Side Code Base in order to transfer an 
->encrypted token.
->
-> Mobile Application : Our Native Mobile Application HexaEight Authenticator is used by the user to Login to your application.
+    Server side code base: The Server side code base which performs the authentication is implemented as a 
+    Serverless Function and is currently available for CloudFlare Workers.
+    The Server side code base for Cloudflare Worker is written in Javascript and implemented in a Cloudflare Worker
+
+    Client Side Code Base: The Client side code base which endorses the client application is also 
+    written in Javascript and needs to be included on any web page 
+    that needs to incorporate HexaEight Serverless authentication.
+  
+    Data Sinks : Datasinks are drop points that should be accessible to the Mobile Applicaton 
+    as well as to the Server Side Code Base in order to transfer an 
+    encrypted token.
+
+    Mobile Application : Our Native Mobile Application HexaEight Authenticator is used by the user to Login to your application.
 
 In order to implement HexaEight Serverless in your Environment, you will need to install the Server Side Code Base 
 using your Account with the Cloud Provider.
@@ -49,8 +49,7 @@ One of the Salient features that these Data sinks posses is that these drop and 
 In addition to this feature the drop points which is used by the Mobile Application to transfer the encrypted
 token cannot be read by the Client Side Code base. 
 
-> Data Sinks can be Private or Public, example of a sample Public Data sink that can be 
-> used for our authentication is [Internet Clipboard](https://cl1p.net)
+#### Data Sinks can be Private or Public, example of a sample Public Data sink that can be used for our authentication is [Internet Clipboard](https://cl1p.net)
 
 While in a Public Data Sink, the encrypted tokens can be accessed by anyone, in the event the 
 location is accessed by a malicious program or user, 
@@ -68,9 +67,7 @@ every request to the server adds to the cost and hence we provided a low cost so
 Clip board which allows you buy a url location which can contain more drop or pickup point for a very low 
 price which can outbeat the cost if you use the Private Datasink.
 
-> From a Security perspective, its important to understand our encrypted tokens can NEVER be deciphered or used 
-> to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are accessible 
-> to anyone if they know the drop point location.
+#### From a Security perspective, its important to understand our encrypted tokens can NEVER be deciphered or used to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are accessible to anyone if they know the drop point location.
 
 * * *
 
@@ -90,7 +87,7 @@ How To Deploy
 
 2. Deploy the Cloud Flare Worker Template by following the instructions.
 
-    #### Follow the Instructions available [HERE](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
+    Follow the Instructions available [HERE](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
 
 3. Download and install the Mobile Application and create a Login Token. Instructions for Our Mobile Application Are Available [Here](https://www.hexaeight.com/docs/quick-instructions.html)
 
