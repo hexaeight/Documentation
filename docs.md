@@ -41,7 +41,7 @@ for Other Cloud Providers like Microsoft Azure, AWS, Google Cloud, Vercel shortl
 
 * * *
 
-# DataSinks
+## DataSinks
 
 Data Sinks are nothing but a random drop and pickup location points that is used to 
 transmit Encrypted tokens between the User Mobile Application and Server Side Code Base.  
@@ -82,9 +82,7 @@ In order to install the Server Side Code base, you need access to your Cloud Fla
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
 in your Cloud Flare Account.
 
-> Limitations:  CloudFlare current does not support registering only a subdomain as this feature is limited 
-> to Enterprise customers as such you can deploy HexaEight Serverless only for Top level domains and not subdomains. 
-> We are aware of this limitation and agressively working towards make HexaEight Serverless available on other Cloud Providers.
+#### Limitations:  CloudFlare current does not support registering only a subdomain as this feature is limited to Enterprise customers as such you can deploy HexaEight Serverless only for Top level domains and not subdomains. We are aware of this limitation and agressively working towards make HexaEight Serverless available on other Cloud Providers.
 
 How To Deploy 
 
@@ -92,8 +90,7 @@ How To Deploy
 
 2. Deploy the Cloud Flare Worker Template by following the instructions.
 
-Follow the Instructions available [HERE](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) under the README section to 
-Deploy HexaEight Serverless using a Cloud Flare Worker.
+    #### Follow the Instructions available [HERE](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
 
 3. Download and install the Mobile Application and create a Login Token. Instructions for Our Mobile Application Are Available [Here](https://www.hexaeight.com/docs/quick-instructions.html)
 
@@ -209,13 +206,10 @@ Categories:
 ```
 LoginSuccess : User was successfully authenticated.
 LoginBlocked : User was valid but blocked because Email Domain Filter was active.
-CookieExtensionSuccess : JWT insode the cookie was extended successfully by one hour.
+CookieExtensionSuccess : JWT inside the cookie was extended successfully by one hour.
 ```
 
-> #### Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, 
-> #### will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will
-> #### never be able to see any Log of unauthorizied user attempts without email addresses since our platform handles it and 
-> #### doesent even let that request reach your Domain.
+> #### Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will never be able to see any Log of unauthorizied user attempts without email addresses since our platform handles it and doesent even let that request reach your Domain.
 
 * * *
 
