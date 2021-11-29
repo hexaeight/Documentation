@@ -33,6 +33,7 @@ written in Javascript and needs to be included on any web page
 that needs to incorporate HexaEight Serverless authentication.
   
 **Data Sinks :**
+
 Datasinks are drop points that should be accessible to the Mobile Applicaton
 as well as to the Server Side Code Base in order to transfer an 
 encrypted token.
@@ -85,7 +86,7 @@ accessible to anyone if they know the drop point location.**
 
 # HexaEight Serverless
 
-## CloudFlare Installation
+## Install On CloudFlare Worker
 
 In order to install the Server Side Code base, you need access to your Cloud Flare account and have the ablility 
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
@@ -113,7 +114,7 @@ How To Deploy
 
 * * *
 
-## CloudFlare Metrics
+## CF Worker Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
 however it is important to understand the number of times a worker is called to complete HexaEight login process.
@@ -197,7 +198,7 @@ and receive an new JWT extended by one hour.  You can then call the `Fetch Cooki
 
 * * *
 
-## CloudFlare Logs
+## CF Audit Logs
 
 HexaEight Serverless logs the email address of any user who attempts to login to your application in a KV namespace on 
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
@@ -221,11 +222,11 @@ LoginBlocked : User was valid but blocked because Email Domain Filter was active
 CookieExtensionSuccess : JWT inside the cookie was extended successfully by one hour.
 ```
 
-    Security Note: A user who tries to login with a wrong password into HexaEight Serverless 
-    residing in your domain, will not even be able to generate an encrypted token, since our 
-    Platform will detect this and block the user, hence you will never be able to see any Log of 
-    unauthorizied user attempts without email addresses since our platform handles it and doesent even 
-    let that request reach your Domain.
+**Security Note: A user who tries to login with a wrong password into HexaEight Serverless 
+residing in your domain, will not even be able to generate an encrypted token, since our 
+Platform will detect this and block the user, hence you will never be able to see any Log of 
+unauthorizied user attempts without email addresses since our platform handles it and doesent even 
+let that request reach your Domain.**
 
 * * *
 
