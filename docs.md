@@ -131,22 +131,20 @@ HexaEight Serverless sets the below three cookies after a user has logged into y
 >     hexaeightsessionid:xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA
 > 
 
-> Hexaeightsessionid cookie contains the code challenge presented by the Client Application to the Server Server side code base. 
-> You can use this code challenge like in a PKCE authorization to verify the authenticity of the JWT token which is available in the hexaeighttoken. It is very useful to deploy this
-> kind of check in an external service to verify the authenticity of the JWT token before allowing access to the service. 
+Hexaeight Sessionid cookie contains the code challenge presented by the Client Application to the Server Server side code base. 
+You can use this code challenge like in a PKCE authorization to verify the authenticity of the JWT token which is available in the hexaeighttoken. It is very useful to deploy this
+kind of check in an external service to verify the authenticity of the JWT token before allowing access to the service. 
 
 >
 >     hexaeighttoken : JSON Web Token
 
-Hexaeighttoken contains the JSON Web Token containing the user identity and can only be decoded by calling 
+Hexaeight Token contains the JSON Web Token containing the user identity and can only be decoded by calling 
 HexaEight `Fetch Cookie User` API Endpoint 
 
 >     https://hexaeight-sso-platform.p.rapidapi.com/get-cookieuser
 
-> The code snippets to implement Fetch Cookie User for various languages is available 
-> at https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform
+The code snippets to implement Fetch Cookie User for various languages is available [HERE](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform)
 
->
 >        { iss : auth.hexaeight.com, 
 >        user: user@domain.dom,
 >        state : User Authenticated Successfully,
@@ -157,12 +155,12 @@ HexaEight `Fetch Cookie User` API Endpoint
 >        nbf: 1638083923,
 >        exp: 27301459}
 
-> The above decrypted information is available after a successful call to `Fetch Cookie User` EndPoint
+The above decrypted information is available after a successful call to `Fetch Cookie User` EndPoint
 
 >      hexaeightuserinfo:user@domain.dom:1638087540000 
 
 
-HexaEightuserinfo cookie contains information about the user logged in along with expiry time in unixtime milliseconds.  
+HexaEight User Info cookie contains information about the user logged in along with expiry time in unixtime milliseconds.  
 If you do not want to call Worker token endpoint you can use this value to determine the cookie expiry time before which the session needs to be extended. 
 
 JWT Expiry:  The cookie set by HexaEight Serverless expires exactly at the same time when the cookie expires.  At times you might wish to use the JWT directly
@@ -174,7 +172,7 @@ background service that extends the cookie expiration instead of calling the wor
 > and receive an new JWT extended by one hour.  You can then call the `Fetch Cookie User` end point to verify the extended JWT.
 
 
-# Logs
+## Logs
 
 HexaEight Serverless logs the email address of any user who attempts to login to your application in a KV namespace on 
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
@@ -182,12 +180,14 @@ get automatically expired deleted. It is your responsibility to export these ent
 
 > Here is a sample GitHub project that shows how to export KV namespaces to a SQLite https://github.com/stevenpack/cloudflare-workers-kv-export
 >
-> Logs are categorized into four types and explained below:
->
+
+Logs are categorized into four types and explained below:
+
 >     `Key - Stores the Time at which the login was attempted.`
 >     `Value - Stores the user information who attempted the login and the action outcome.`
 
 Categories:
+
 >     LoginSuccess : User was successfully authenticated.
 >     LoginBlocked : User was valid but blocked because Email Domain Filter was active.
 >     CookieExtensionSuccess : JWT insode the cookie was extended successfully by one hour.
@@ -210,9 +210,7 @@ This sample login page is also available at
 
 
 
-
-
-# Best Practices To Protect Authentication Tokens Generated In HexaEight Authenticator
+# Best Practices To Protect Authentication Tokens
 
 We outline the best practices for users to follow when using our Mobile Application so that 
 they can safeguard themselves against malicious attacks targeted at them. 
