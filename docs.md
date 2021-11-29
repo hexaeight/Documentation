@@ -126,18 +126,20 @@ worker prior to cookie expiry to keep the user active in your application.
 
 HexaEight Serverless sets the below three cookies after a user has logged into your domain.
 
->     hexaeightsessionid : codechallenge
->
->     Example :  
->     hexaeightsessionid:xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA
-> 
+```
+hexaeightsessionid : codechallenge
+```
+
+Example :  
+hexaeightsessionid:xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA
 
 Hexaeight Sessionid cookie contains the code challenge presented by the Client Application to the Server Server side code base. 
 You can use this code challenge like in a PKCE authorization to verify the authenticity of the JWT token which is available in the hexaeighttoken. It is very useful to deploy this
 kind of check in an external service to verify the authenticity of the JWT token before allowing access to the service. 
 
->
->     hexaeighttoken : JSON Web Token
+```
+hexaeighttoken : JSON Web Token
+```
 
 Hexaeight Token contains the JSON Web Token containing the user identity and can only be decoded by calling 
 HexaEight `Fetch Cookie User` API Endpoint 
@@ -160,8 +162,9 @@ exp: 27301459}
 
 The above decrypted information is available after a successful call to `Fetch Cookie User` EndPoint
 
->      hexaeightuserinfo:user@domain.dom:1638087540000 
-
+```
+hexaeightuserinfo:user@domain.dom:1638087540000 
+```
 
 HexaEight User Info cookie contains information about the user logged in along with expiry time in unixtime milliseconds.  
 If you do not want to call Worker token endpoint you can use this value to determine the cookie expiry time before which the session needs to be extended. 
@@ -170,9 +173,9 @@ JWT Expiry:  The cookie set by HexaEight Serverless expires exactly at the same 
 in an external or internal service to keep the user logged in to perform some background tasks on behalf of the user. So it may be viable for you to implement a 
 background service that extends the cookie expiration instead of calling the worker script since the worker script is dependent on the cookie. 
 
-> You can extend the JWT by invoking the `Extend Auth Token` End Point https://hexaeight-sso-platform.p.rapidapi.com/extendauthtoken
-> using your Rapid API key associated with the Client Secure Code (Client ID) by sending the JSON Web Token as a post request to the EndPoint 
-> and receive an new JWT extended by one hour.  You can then call the `Fetch Cookie User` end point to verify the extended JWT.
+You can extend the JWT by invoking the `Extend Auth Token` End Point https://hexaeight-sso-platform.p.rapidapi.com/extendauthtoken
+using your Rapid API key associated with the Client Secure Code (Client ID) by sending the JSON Web Token as a post request to the EndPoint 
+and receive an new JWT extended by one hour.  You can then call the `Fetch Cookie User` end point to verify the extended JWT.
 
 * * *
 
@@ -182,19 +185,23 @@ HexaEight Serverless logs the email address of any user who attempts to login to
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
 get automatically expired deleted. It is your responsibility to export these entries into a log database for log term retention.
 
-> Here is a sample GitHub project that shows how to export KV namespaces to a SQLite https://github.com/stevenpack/cloudflare-workers-kv-export
->
+Here is a [Sample GitHub Project](https://github.com/stevenpack/cloudflare-workers-kv-export) that shows how to export KV namespaces to a SQLite 
+
 
 Logs are categorized into four types and explained below:
 
->     `Key - Stores the Time at which the login was attempted.`
->     `Value - Stores the user information who attempted the login and the action outcome.`
+```
+Key - Stores the Time at which the login was attempted.
+Value - Stores the user information who attempted the login and the action outcome.
+```
 
 Categories:
 
->     LoginSuccess : User was successfully authenticated.
->     LoginBlocked : User was valid but blocked because Email Domain Filter was active.
->     CookieExtensionSuccess : JWT insode the cookie was extended successfully by one hour.
+```
+LoginSuccess : User was successfully authenticated.
+LoginBlocked : User was valid but blocked because Email Domain Filter was active.
+CookieExtensionSuccess : JWT insode the cookie was extended successfully by one hour.
+```
 
 > Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, 
 > will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will
@@ -207,6 +214,8 @@ Categories:
 At times you may want to customize your login page to include alternate login options along with HexaEight Authentication. 
 If you wish to implement your own login page design, you can do so by following the below guidelines.
 
+Create the below two div tag elements along with two buttons and place it at an appropriate location.
+
 ```js
 <div id="display-hexaeight-qrcode"> </div>
 <div id="display-hexaeight-qrcodeid"> </div>
@@ -214,9 +223,13 @@ If you wish to implement your own login page design, you can do so by following 
 <button id="scan-hexaeight-qrcode"> Scan QR Code </button>
 ```
 
+Include the below Script tag and change the values to the input parameters
+
 ```js
 <script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="login.yourdomain.dom" path="/" redirecturl="/loginsuccess" clientappcode="your client id" datasinkprotocol="https" datasinkurl="login.yourdomain.dom/login/sink"></script>
 ```
+
+And your custom login page should be ready.
 
 We have already designed a [Sample login page](https://demo.hexaeight.com/cf-login.html) to show case this capability.  
 You can follow the same and implement your own login page.
