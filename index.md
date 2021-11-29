@@ -51,9 +51,7 @@ for Other Cloud Providers like Microsoft Azure, AWS, Google Cloud, Vercel shortl
 
 * * *
 
-# [HexaEight Serverless](/serverless.md)
-
-# EndPoints
+## EndPoints
 
 **Fetch Secure Code**
 
@@ -98,6 +96,13 @@ The code snippets on how to use these EndPoints for various languages is availab
 
 
 * * *
+
+# [HexaEight Serverless](/serverless.md)
+
+
+# [HexaEight Token Service]
+    
+**Coming Soon**
 
 
 # Understanding DataSinks
