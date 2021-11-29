@@ -197,6 +197,37 @@ let that request reach your Domain.**
 
 * * *
 
+## EndPoints
+
+### Fetch Secure Code
+
+This end point is used for generating a Secure Code or Client ID for new Client Application. 
+This request is done usually ONCE when configuring HexaEight Serverless and is treated as one request
+
+### Fetch Auth Token
+
+This end point is used for decrypting an Encrypted Authenticated Web Token captured from the user 
+using Cookie Based Authentication and consumes one request.  Since the user information is saved in the cookie, 
+there is no need to use this request more than once within an hour after user authentication is complete. 
+This request needs to be used again after an existing token has been extended by another hour in order to 
+fetch updated token validity information.
+
+This end point is also used for fetching an access token which is treated as one request and is valid for 15 minutes. 
+The access token has no limit on the number of times it is allowed to access the Resource server within this 15 minute timeframe.
+
+### Extend Auth Token Expiration
+
+This end point is used for extending the expiration of an existing Encrypted Authenticated Web Token used in Cooke based Authentication 
+by one hour and is treated as one request.
+
+### Fetch Cookie User
+
+This end point is used after extending the expiration of a JSON Web token to determine if the expiration 
+request was successful and to decode the new expiration time in order to update the existing cookie in Cookie based authentication.  
+This is the same endpoint that is used by External Services or Non Cookie based applications to decode the authenticated user using JSON Web tokens.
+
+* * *
+
 ## Customize Login Pages
 
 At times you may want to customize your login page to include alternate login options along with HexaEight Authentication. 
