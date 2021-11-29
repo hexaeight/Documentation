@@ -12,6 +12,7 @@ HexaEight Token Service is an On Premisis Solution for protecting
 resources Applications using Access and Refresh tokens similar to OAuth2.
 
 ## Components
+
 HexaEight Authentication has four Components
 
  1.  Server Side Code Base
@@ -49,7 +50,8 @@ One of the Salient features that these Data sinks posses is that these drop and 
 In addition to this feature the drop points which is used by the Mobile Application to transfer the encrypted
 token cannot be read by the Client Side Code base. 
 
-#### Data Sinks can be Private or Public, example of a sample Public Data sink that can be used for our authentication is [Internet Clipboard](https://cl1p.net)
+    Data Sinks can be Private or Public, example of a sample Public Data sink that can be used for our 
+    authentication is [Internet Clipboard](https://cl1p.net)
 
 While in a Public Data Sink, the encrypted tokens can be accessed by anyone, in the event the 
 location is accessed by a malicious program or user, 
@@ -67,7 +69,9 @@ every request to the server adds to the cost and hence we provided a low cost so
 Clip board which allows you buy a url location which can contain more drop or pickup point for a very low 
 price which can outbeat the cost if you use the Private Datasink.
 
-#### From a Security perspective, its important to understand our encrypted tokens can NEVER be deciphered or used to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are accessible to anyone if they know the drop point location.
+    From a Security perspective, its important to understand our encrypted tokens can NEVER be deciphered or 
+    used to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are 
+    accessible to anyone if they know the drop point location.
 
 * * *
 
@@ -79,7 +83,10 @@ In order to install the Server Side Code base, you need access to your Cloud Fla
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
 in your Cloud Flare Account.
 
-#### Limitations:  CloudFlare current does not support registering only a subdomain as this feature is limited to Enterprise customers as such you can deploy HexaEight Serverless only for Top level domains and not subdomains. We are aware of this limitation and agressively working towards make HexaEight Serverless available on other Cloud Providers.
+    Limitations:  CloudFlare current does not support registering only a subdomain 
+    as this feature is limited to Enterprise customers as such you can deploy HexaEight 
+    Serverless only for Top level domains and not subdomains. We are aware of this limitation 
+    and agressively working towards make HexaEight Serverless available on other Cloud Providers.
 
 How To Deploy 
 
@@ -206,7 +213,11 @@ LoginBlocked : User was valid but blocked because Email Domain Filter was active
 CookieExtensionSuccess : JWT inside the cookie was extended successfully by one hour.
 ```
 
-> #### Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will never be able to see any Log of unauthorizied user attempts without email addresses since our platform handles it and doesent even let that request reach your Domain.
+    Security Note: A user who tries to login with a wrong password into HexaEight Serverless 
+    residing in your domain, will not even be able to generate an encrypted token, since our 
+    Platform will detect this and block the user, hence you will never be able to see any Log of 
+    unauthorizied user attempts without email addresses since our platform handles it and doesent even 
+    let that request reach your Domain.
 
 * * *
 
