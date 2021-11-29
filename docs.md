@@ -83,9 +83,9 @@ accessible to anyone if they know the drop point location.**
 
 * * *
 
-# HexaEight Serverless - CloudFlare
+# HexaEight Serverless
 
-## Install
+## CloudFlare Installation
 
 In order to install the Server Side Code base, you need access to your Cloud Flare account and have the ablility 
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
@@ -113,7 +113,7 @@ How To Deploy
 
 * * *
 
-## Metrics
+## CloudFlare Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
 however it is important to understand the number of times a worker is called to complete HexaEight login process.
@@ -197,7 +197,7 @@ and receive an new JWT extended by one hour.  You can then call the `Fetch Cooki
 
 * * *
 
-## Logs
+## CloudFlare Logs
 
 HexaEight Serverless logs the email address of any user who attempts to login to your application in a KV namespace on 
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
