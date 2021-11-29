@@ -224,18 +224,32 @@ Create the below two div tag elements along with two buttons and place it at an 
 ```
 
 Include the below Script tag and change the values to the input parameters
+Change the servername to your preferred subdomain and the redirecturl to any successpage of your choice
 
 ```js
-<script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="login.yourdomain.dom" path="/" redirecturl="/loginsuccess" clientappcode="your client id" datasinkprotocol="https" datasinkurl="login.yourdomain.dom/login/sink"></script>
+<script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername=subdomain.yourdomain.dom" path="/" redirecturl="/anysuccesspage.html" clientappcode="your client id" datasinkprotocol="https" datasinkurl="login.yourdomain.dom/login/sink"></script>
 ```
-
 And your custom login page should be ready.
+
+!Important
+
+> The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml 
+> where as the above servername setting is the subdomain where this custom login page is being displayed.
+
+Remember that even though Cloudflare Worker is deployed for all subdomains under yourdomain.dom, with the path ending in /login followed by anything 
+is intercepted by the worker as shown below,
+
+So any subdomain can be protected by deploying a custom login page and invoking our quickauth script which uses the /login to initiate the login page protection.
+
+```
+*.hexaeight.com/login*
+```
 
 We have already designed a [Sample login page](https://demo.hexaeight.com/cf-login.html) to show case this capability.  
 You can follow the same and implement your own login page.
 
-This sample login page is also available at 
-[HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub under loginpagesample
+This above sample login page is also available at 
+[HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
 
