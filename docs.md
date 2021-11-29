@@ -1,3 +1,6 @@
+* TOC
+{:toc}
+
 # HexaEight Authentication
 
 ## Introduction
@@ -87,7 +90,7 @@ The Cloudflare worker Script is called when accessing the below EndPoints
 
 1. Accessing the Login Page `/login/loginpage`
 2. Mobile application submits an encrypted token to the Private Datasink. `/login/sink`
-3. Displaying the Dashboard Page upon successful login `/login/success`
+3. Displaying the Dashboard Page upon successful login `/login/loginsuccess`
 4. While using any of the below endpoints 
     - `login/getuseremail` - To get the user email using the cookie if the user is logged in
     - `login/extendSession` - To extend the user cookie session if the user is logged in.
@@ -119,6 +122,9 @@ hexaeightsessionid:xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA
 Hexaeight Sessionid cookie contains the code challenge presented by the Client Application to the Server Server side code base. 
 You can use this code challenge like in a PKCE authorization to verify the authenticity of the JWT token which is available in the hexaeighttoken. It is very useful to deploy this
 kind of check in an external service to verify the authenticity of the JWT token before allowing access to the service. 
+
+Alternatively, you could even use the code challenge as an symmetric key to encrpt data between the calling application and the external service,
+so that the external service knows that only an application which has access to the code challenge will be able to decrypt the data.
 
 ```
 hexaeighttoken : JSON Web Token
