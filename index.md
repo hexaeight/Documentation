@@ -100,7 +100,7 @@ The code snippets on how to use these EndPoints for various languages is availab
 
 # [HexaEight Serverless](/serverless.md)
 
-
+Click on the HexaEight Serverless link to access Deployment Documentation related to HexaEight Serverless.
 
 * * *  
  
@@ -109,7 +109,7 @@ The code snippets on how to use these EndPoints for various languages is availab
 
 
 
-# [HexaEight Token Service]
+# HexaEight Token Service
     
 
 **Coming Soon**
