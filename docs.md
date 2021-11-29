@@ -1,8 +1,9 @@
 * TOC
 {:toc}
 
+# HexaEight Authentication
 
-# Introduction
+## Introduction
 
 HexaEight Serverless is a Cloud Solution for implementing Domain Wide authentication 
 for Websites and Web Applications using a Custom Domain name.
@@ -218,7 +219,7 @@ CookieExtensionSuccess : JWT insode the cookie was extended successfully by one 
 
 * * *
 
-# Customize
+## Customize Login Pages
 
 At times you may want to customize your login page to include alternate login options along with HexaEight Authentication. 
 If you wish to implement your own login page design, you can do so by following the below guidelines.
@@ -262,7 +263,15 @@ This above sample login page is also available at
 
 * * *
 
-# Best Practices To Protect Authentication Tokens
+# Mobile Application
+
+## PlayStores
+
+HexaEight Authenticator can be installed for Andorid from [Google Play Store](https://play.google.com/store/apps/details?id=com.companyname.hexaeightauth) as well as for iOS from [Apple Play Store](https://apps.apple.com/in/app/hexaeight-authenticator/id1584547289)
+
+Additional Instructions are available [HERE](https://www.hexaeight.com/docs/quick-instructions.html)
+
+## Best Practices To Protect Authentication Tokens
 
 We outline the best practices for users to follow when using our Mobile Application so that 
 they can safeguard themselves against malicious attacks targeted at them. 
