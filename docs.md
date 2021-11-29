@@ -245,7 +245,6 @@ And your custom login page should be ready.
 
 
 #### The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml where as the above servername setting is the subdomain where this custom login page is being displayed.
-```
 
 Remember that Cloudflare Worker is deployed for all subdomains under yourdomain.dom Any url with the path ending in /login followed by anything 
 is intercepted by the worker as shown below,
