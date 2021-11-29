@@ -50,16 +50,16 @@ token cannot be read by the Client Side Code base.
 
 > Data Sinks can be Private or Public, example of a sample Public Data sink that can be 
 > used for our authentication is [Internet Clipboard](https://cl1p.net)
->
-> While in a Public Data Sink, the encrypted tokens can be accessed by anyone, in the event the 
-> location is accessed by a malicious program or user, 
-> the encrypted token will no longer be available to the Server Side Code base due to their feature of one time usage.  
-> Since the Client Side Code Base deploys PKCE authorization
-> it is not possible for a malicious program or attacker to use the enrypted tokens to perform any impersonation using an encrypted token.
->
-> Private Data Sinks are implemented directly in the Server Side code base and offer greater protection for encrypted 
-> token transferred by Mobile Application since it is not possible for any malicious user to access these tokens once 
-> they are sent to the Server. 
+
+While in a Public Data Sink, the encrypted tokens can be accessed by anyone, in the event the 
+location is accessed by a malicious program or user, 
+the encrypted token will no longer be available to the Server Side Code base due to their feature of one time usage.  
+Since the Client Side Code Base deploys PKCE authorization
+it is not possible for a malicious program or attacker to use the enrypted tokens to perform any impersonation using an encrypted token.
+
+Private Data Sinks are implemented directly in the Server Side code base and offer greater protection for encrypted 
+token transferred by Mobile Application since it is not possible for any malicious user to access these tokens once 
+they are sent to the Server. 
 
 If you are wondering why does HexaEight Serverless support Public Datasinks, it bascially providing a fine 
 balance between Security and Cost. Since Private Datasinks are implemented on the Server Side code base, 
@@ -71,6 +71,8 @@ price which can outbeat the cost if you use the Private Datasink.
 > to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are accessible 
 > to anyone if they know the drop point location.
 
+* * *
+
 # HexaEight Serverless
 
 ## Install
@@ -80,20 +82,24 @@ to authenticate using wrangler using an API Token.  In addition, you also need t
 in your Cloud Flare Account.
 
 > Limitations:  CloudFlare current does not support registering only a subdomain as this feature is limited 
-> to Enterprise customers as such you can deploy HexaEight Serverless only for Top level domains and not subdomains.  
+> to Enterprise customers as such you can deploy HexaEight Serverless only for Top level domains and not subdomains. 
 > We are aware of this limitation and agressively working towards make HexaEight Serverless available on other Cloud Providers.
 
 How To Deploy 
 
 1. [Subscribe](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing) to one of our Plans and obtain an API Key.
+
 2. Deploy the Cloud Flare Worker Template by following the instructions.
-3. Download and install the Mobile Application and create a Login Token.
-4. Access your loging page which should be available at https://login.yourdomain.dom/loginpage assuming you did not change the login 
-    domain in the Worker template.
+
+Follow the Instructions available [HERE](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) under the README section to 
+Deploy HexaEight Serverless using a Cloud Flare Worker.
+
+3. Download and install the Mobile Application and create a Login Token. Instructions for Our Mobile Application Are Available [Here](https://www.hexaeight.com/docs/quick-instructions.html)
+
+4. Access your login page which should be available at https://login.yourdomain.dom/loginpage
+
 5. Test the Authentication using the Mobile App.
 
-Follow the Instructions available @ https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template 
-under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
 
 * * *
 
