@@ -1,7 +1,3 @@
-* TOC
-{:toc}
-
-
 # Introduction
 
 HexaEight Serverless is a Cloud Solution for implementing Domain Wide authentication 
