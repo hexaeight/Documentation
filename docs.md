@@ -20,23 +20,24 @@ HexaEight Authentication has four Components
  3.  Data Sinks
  4.  Mobile Application
 
-    **Server side code base: The Server side code base which performs the 
-    **authentication is implemented as a Serverless Function and is currently 
-    **available for CloudFlare Workers. The Server side code base for Cloudflare 
-    **Worker is written in Javascript and implemented in a Cloudflare Worker
+Server side code base: The Server side code base which performs the 
+authentication is implemented as a Serverless Function and is currently 
+available for CloudFlare Workers. The Server side code base for Cloudflare 
+Worker is written in Javascript and implemented in a Cloudflare Worker
 
-    Client Side Code Base: The Client side code base which endorses the client application is also 
-    written in Javascript and needs to be included on any web page 
-    that needs to incorporate HexaEight Serverless authentication.
+Client Side Code Base: The Client side code base which endorses the client application is also 
+written in Javascript and needs to be included on any web page 
+that needs to incorporate HexaEight Serverless authentication.
   
-    Data Sinks : Datasinks are drop points that should be accessible to the Mobile Applicaton 
-    as well as to the Server Side Code Base in order to transfer an 
-    encrypted token.
+Data Sinks : Datasinks are drop points that should be accessible to the Mobile Applicaton
+as well as to the Server Side Code Base in order to transfer an 
+encrypted token.
 
-    Mobile Application : Our Native Mobile Application HexaEight Authenticator is used by the user to Login to your application.
+Mobile Application : Our Native Mobile Application HexaEight Authenticator is used by the user to Login to your application.
 
 In order to implement HexaEight Serverless in your Environment, you will need to install the Server Side Code Base 
-using your Account with the Cloud Provider.
+using your Account with the Cloud Provider and allow your users to download our free Mobile Application to scan the QR Code and login
+to your application.
 
 HexaEight Serverless is currently available only for installation on a Cloudflare Worker, but should be available 
 for Other Cloud Providers like Microsoft Azure, AWS, Google Cloud, Vercel shortly.
@@ -247,7 +248,7 @@ And your custom login page should be ready.
 ***Important***
 
 
-#### The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml where as the above servername setting is the subdomain where the custom login page is being displayed.
+**The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml where as the above servername setting is the subdomain where the custom login page is being displayed.**
 
 Remember that Cloudflare Worker is deployed for all subdomains under yourdomain.dom Any url with the path ending in /login followed by anything 
 is intercepted by the worker as shown below,
