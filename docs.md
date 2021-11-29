@@ -10,6 +10,7 @@ for Websites and Web Applications using a Custom Domain name.
 HexaEight Token Service is an On Premisis Solution for protecting 
 resources Applications using Access and Refresh tokens similar to OAuth2.
 
+## Components
 HexaEight Authentication has four Components
 
  1.  Server Side Code Base
@@ -37,6 +38,7 @@ using your Account with the Cloud Provider.
 HexaEight Serverless is currently available only for installation on a Cloudflare Worker, but should be available 
 for Other Cloud Providers like Microsoft Azure, AWS, Google Cloud, Vercel shortly.
 
+* * *
 
 # DataSinks
 
