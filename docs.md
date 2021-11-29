@@ -243,8 +243,9 @@ And your custom login page should be ready.
 
 ***Important***
 
-> The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml 
-> where as the above servername setting is the subdomain where this custom login page is being displayed.
+
+#### The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml where as the above servername setting is the subdomain where this custom login page is being displayed.
+```
 
 Remember that Cloudflare Worker is deployed for all subdomains under yourdomain.dom Any url with the path ending in /login followed by anything 
 is intercepted by the worker as shown below,
@@ -265,11 +266,12 @@ This above sample login page is also available at
 
 # Mobile Application
 
+
 ## PlayStores
 
 HexaEight Authenticator can be installed for Andorid from [Google Play Store](https://play.google.com/store/apps/details?id=com.companyname.hexaeightauth) as well as for iOS from [Apple Play Store](https://apps.apple.com/in/app/hexaeight-authenticator/id1584547289)
 
-Additional Instructions are available [HERE](https://www.hexaeight.com/docs/quick-instructions.html)
+Additional Instructions for Usage On Mobile are available [HERE](https://www.hexaeight.com/docs/quick-instructions.html)
 
 ## Best Practices To Protect Authentication Tokens
 
