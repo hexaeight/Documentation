@@ -51,40 +51,6 @@ for Other Cloud Providers like Microsoft Azure, AWS, Google Cloud, Vercel shortl
 
 * * *
 
-## DataSinks
-
-Data Sinks are nothing but a random drop and pickup location points that is used to 
-transmit Encrypted tokens between the User Mobile Application and Server Side Code Base.  
-One of the Salient features that these Data sinks posses is that these drop and pickup points are for one time usage.  
-In addition to this feature the drop points which is used by the Mobile Application to transfer the encrypted
-token cannot be read by the Client Side Code base. 
-
-**Data Sinks can be Private or Public, example of a simple Public Data sink that can be 
-used for our authentication is [Internet Clipboard](https://cl1p.net)**
-
-While in a Public Data Sink, the encrypted tokens can be accessed by anyone, in the event the 
-encrypted token is accessed by a malicious program or user prior to the Server Side Code Base accessing that location, 
-the encrypted token will no longer be available for the Server Side Code base. This is because of the Data Sink feature of allowing access to data in 
-the location for ONLY one time use. Since the Client Side Code Base deploys [PKCE](https://oauth.net/2/pkce/) verification it is not possible for a malicious 
-program or attacker to use the enrypted tokens to perform any impersonation using an encrypted token since the code verifier and code challenges wont match.
-
-Private Data Sinks are implemented directly in the Server Side code base and offer greater protection for encrypted 
-token transferred by Mobile Application since it is not possible for any malicious user to access these tokens once 
-they are sent to the Server. 
-
-If you are wondering why does HexaEight Serverless support Public Datasinks, it bascially providing a fine 
-balance between Security and Cost. Since Private Datasinks are implemented on the Server Side code base, 
-accessing the Datasink from the Mobile is treated as a request which adds to the cost and hence we provided 
-a low cost solution like the [Internet Clip](https://cl1p.net) board which allows you buy a url location 
-which can contain more drop or pickup sub locations for a very low price which can outbeat the cost if 
-you use the Private Datasink.
-
-**From a Security perspective, its important to understand our encrypted tokens can NEVER be deciphered or 
-used to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are 
-accessible to anyone if they know the drop point location. We have left the decsion on the choice of DataSinks to the Implementor**
-
-* * *
-
 # HexaEight Serverless
 
 ## Deploy On CloudFlare Worker
@@ -272,6 +238,40 @@ You can follow the same and implement your own login page.
 
 This above sample login page is also available at 
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
+
+* * *
+
+# Understanding DataSinks
+
+Data Sinks are nothing but a random drop and pickup location points that is used to 
+transmit Encrypted tokens between the User Mobile Application and Server Side Code Base.  
+One of the Salient features that these Data sinks posses is that these drop and pickup points are for one time usage.  
+In addition to this feature the drop points which is used by the Mobile Application to transfer the encrypted
+token cannot be read by the Client Side Code base. 
+
+**Data Sinks can be Private or Public, example of a simple Public Data sink that can be 
+used for our authentication is [Internet Clipboard](https://cl1p.net)**
+
+While in a Public Data Sink, the encrypted tokens can be accessed by anyone, in the event the 
+encrypted token is accessed by a malicious program or user prior to the Server Side Code Base accessing that location, 
+the encrypted token will no longer be available for the Server Side Code base. This is because of the Data Sink feature of allowing access to data in 
+the location for ONLY one time use. Since the Client Side Code Base deploys [PKCE](https://oauth.net/2/pkce/) verification it is not possible for a malicious 
+program or attacker to use the enrypted tokens to perform any impersonation using an encrypted token since the code verifier and code challenges wont match.
+
+Private Data Sinks are implemented directly in the Server Side code base and offer greater protection for encrypted 
+token transferred by Mobile Application since it is not possible for any malicious user to access these tokens once 
+they are sent to the Server. 
+
+If you are wondering why does HexaEight Serverless support Public Datasinks, it bascially providing a fine 
+balance between Security and Cost. Since Private Datasinks are implemented on the Server Side code base, 
+accessing the Datasink from the Mobile is treated as a request which adds to the cost and hence we provided 
+a low cost solution like the [Internet Clip](https://cl1p.net) board which allows you buy a url location 
+which can contain more drop or pickup sub locations for a very low price which can outbeat the cost if 
+you use the Private Datasink.
+
+**From a Security perspective, its important to understand our encrypted tokens can NEVER be deciphered or 
+used to impersonatate an user, you just need to be aware that in a public datasink the encrypted tokens are 
+accessible to anyone if they know the drop point location. We have left the decsion on the choice of DataSinks to the Implementor**
 
 * * *
 
