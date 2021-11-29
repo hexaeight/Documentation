@@ -208,10 +208,10 @@ At times you may want to customize your login page to include alternate login op
 If you wish to implement your own login page design, you can do so by following the below guidelines.
 
 ```js
-			<div id="display-hexaeight-qrcode"></div>
-			<div id="display-hexaeight-qrcodeid"></div>
-			<button id="login-hexaeight-button">Login</button>
-           <button id="scan-hexaeight-qrcode">Scan QR Code</button> <br/>
+<div id="display-hexaeight-qrcode"> </div>
+<div id="display-hexaeight-qrcodeid"> </div>
+<button id="login-hexaeight-button"> Login </button>
+<button id="scan-hexaeight-qrcode"> Scan QR Code </button>
 ```
 
 ```js
