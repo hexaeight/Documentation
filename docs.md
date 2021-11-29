@@ -93,6 +93,8 @@ How To Deploy
 Follow the Instructions available @ https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template 
 under the README section to Deploy HexaEight Serverless using a Cloud Flare Worker.
 
+* * *
+
 ## Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
@@ -104,16 +106,15 @@ The Cloudflare worker Script is called when accessing the below EndPoints
 2. Mobile application submits an encrypted token to the Private Datasink. `/login/sink`
 3. Displaying the Dashboard Page upon successful login `/login/success`
 4. While using any of the below endpoints 
-    a) `login/getuseremail` - To get the user email using the cookie if the user is logged in
-    b) `login/extendSession` - To extend the user cookie session if the user is logged in.
-    c) `login/getsessionexpiry` - To check the time remaining before the Cookie expires in order to extend the Cookie session.
+    - `login/getuseremail` - To get the user email using the cookie if the user is logged in
+    - `login/extendSession` - To extend the user cookie session if the user is logged in.
+    - `login/getsessionexpiry` - To check the time remaining before the Cookie expires in order to extend the Cookie session.
 
-> The `/login/extendSession` endpoint will only try to extend the cookie expiration by an hour if its called within the 
-> last 15 minutes prior to cookie expiry. Trying to extend the cookie expiry 15 minutes before wont work since it involves a 
-> cost factor of using HexaEight RAPID API key to extend the session.
->
-> So it is advisible if you invoke `/login/getsessionexpiry` first to check if the time remaining is less than 15 minutes 
-> before attempting to extend the cookie session.
+The `/login/extendSession` endpoint will only try to extend the cookie expiration by an hour if its called within the 
+last 15 minutes prior to cookie expiry. Trying to extend the cookie expiry 15 minutes before wont work since it involves a 
+cost factor of using HexaEight RAPID API key to extend the session.
+So it is advisible if you invoke `/login/getsessionexpiry` first to check if the time remaining is less than 15 minutes 
+before attempting to extend the cookie session.
 
 A typical login sequence uses up 3 requests in a Cloud Flare worker.  There is no logout sequence implemented since your 
 application has to just delete the cookies to implement a logout sequence if you really want to logout an user or in a 
@@ -173,6 +174,7 @@ background service that extends the cookie expiration instead of calling the wor
 > using your Rapid API key associated with the Client Secure Code (Client ID) by sending the JSON Web Token as a post request to the EndPoint 
 > and receive an new JWT extended by one hour.  You can then call the `Fetch Cookie User` end point to verify the extended JWT.
 
+* * *
 
 ## Logs
 
@@ -198,6 +200,7 @@ Categories:
 > will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will
 > never be able to see any Log of unauthorizied user attempts since our platform handles it and doesent even let that request reach your Domain.
 
+* * *
 
 # Customize
 
@@ -210,7 +213,7 @@ You can follow the same and implement your own login page.
 This sample login page is also available at 
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub under LoginPageSample
 
-
+* * *
 
 # Best Practices To Protect Authentication Tokens
 
