@@ -20,9 +20,10 @@ HexaEight Authentication has four Components
  3.  Data Sinks
  4.  Mobile Application
 
-    Server side code base: The Server side code base which performs the authentication is implemented as a 
-    Serverless Function and is currently available for CloudFlare Workers.
-    The Server side code base for Cloudflare Worker is written in Javascript and implemented in a Cloudflare Worker
+    **Server side code base: The Server side code base which performs the 
+    **authentication is implemented as a Serverless Function and is currently 
+    **available for CloudFlare Workers. The Server side code base for Cloudflare 
+    **Worker is written in Javascript and implemented in a Cloudflare Worker
 
     Client Side Code Base: The Client side code base which endorses the client application is also 
     written in Javascript and needs to be included on any web page 
