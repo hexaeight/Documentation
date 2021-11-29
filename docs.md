@@ -20,24 +20,24 @@ HexaEight Authentication has four Components
  3.  Data Sinks
  4.  Mobile Application
 
-**Server side code base : **
+**Server side code base :**
 
 The Server side code base which performs the 
 authentication is implemented as a Serverless Function and is currently 
 available for CloudFlare Workers and is written in Javascript.
 
-**Client Side Code Base : **
+**Client Side Code Base :**
 
 The Client side code base which endorses the client application is also 
 written in Javascript and needs to be included on any web page 
 that needs to incorporate HexaEight Serverless authentication.
   
-**Data Sinks : **
+**Data Sinks :**
 Datasinks are drop points that should be accessible to the Mobile Applicaton
 as well as to the Server Side Code Base in order to transfer an 
 encrypted token.
 
-**Mobile Application : **
+**Mobile Application :**
 
 Our Native Mobile Application HexaEight Authenticator is used by the user to Login to your application.
 
@@ -85,7 +85,9 @@ accessible to anyone if they know the drop point location.**
 
 # HexaEight Serverless
 
-## Install
+## CloudFlare Worker
+
+### Install
 
 In order to install the Server Side Code base, you need access to your Cloud Flare account and have the ablility 
 to authenticate using wrangler using an API Token.  In addition, you also need to have ability to create a worker 
@@ -113,7 +115,7 @@ How To Deploy
 
 * * *
 
-## Metrics
+### Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
 however it is important to understand the number of times a worker is called to complete HexaEight login process.
@@ -197,7 +199,7 @@ and receive an new JWT extended by one hour.  You can then call the `Fetch Cooki
 
 * * *
 
-## Logs
+### Logs
 
 HexaEight Serverless logs the email address of any user who attempts to login to your application in a KV namespace on 
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
@@ -272,6 +274,11 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
+
+# HexaEight Token Service
+
+## Coming Soon
+
 
 # Mobile Application
 
