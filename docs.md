@@ -133,10 +133,6 @@ hexaeighttoken : JSON Web Token
 Hexaeight Token contains the JSON Web Token containing the user identity and can only be decoded by calling 
 HexaEight `Fetch Cookie User` API Endpoint 
 
->     https://hexaeight-sso-platform.p.rapidapi.com/get-cookieuser
-
-The code snippets to implement Fetch Cookie User for various languages is available [HERE](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform)
-
 ```js
 { iss : auth.hexaeight.com, 
 user: user@domain.dom,
@@ -162,9 +158,10 @@ JWT Expiry:  The cookie set by HexaEight Serverless expires exactly at the same 
 in an external or internal service to keep the user logged in to perform some background tasks on behalf of the user. So it may be viable for you to implement a 
 background service that extends the cookie expiration instead of calling the worker script since the worker script is dependent on the cookie. 
 
-You can extend the JWT by invoking the `Extend Auth Token` End Point https://hexaeight-sso-platform.p.rapidapi.com/extendauthtoken
-using your Rapid API key associated with the Client Secure Code (Client ID) by sending the JSON Web Token as a post request to the EndPoint 
+You can extend the JWT by invoking the `Extend Auth Token` End Point using your Rapid API key associated with the Client Secure Code (Client ID) by sending the JSON Web Token as a post request to the EndPoint 
 and receive an new JWT extended by one hour.  You can then call the `Fetch Cookie User` end point to verify the extended JWT.
+
+Additional Information about EndPoints is availabe in the EndPoints Section on this page.
 
 * * *
 
@@ -207,27 +204,42 @@ let that request reach your Domain.**
 This end point is used for generating a Secure Code or Client ID for new Client Application. 
 This request is done usually ONCE when configuring HexaEight Serverless and is treated as one request
 
+```
+https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken
+```
+
 **Fetch Auth Token**
 
-This end point is used for decrypting an Encrypted Authenticated Web Token captured from the user 
-using Cookie Based Authentication and consumes one request.  Since the user information is saved in the cookie, 
+This end point is used for authenticating an Encrypted Authenticated Web Token transferred by the User Mobile
+in Cookie Based Authentication and consumes one request.  Since the user information is saved in the cookie, 
 there is no need to use this request more than once within an hour after user authentication is complete. 
-This request needs to be used again after an existing token has been extended by another hour in order to 
-fetch updated token validity information.
 
-This end point is also used for fetching an access token which is treated as one request and is valid for 15 minutes. 
-The access token has no limit on the number of times it is allowed to access the Resource server within this 15 minute timeframe.
+```
+https://hexaeight-sso-platform.p.rapidapi.com/fetchauthtoken
+```
 
 **Extend Auth Token Expiration**
 
 This end point is used for extending the expiration of an existing Encrypted Authenticated Web Token used in Cooke based Authentication 
 by one hour and is treated as one request.
 
+```
+https://hexaeight-sso-platform.p.rapidapi.com/extendauthtoken
+```
+
+
 **Fetch Cookie User**
 
 This end point is used after extending the expiration of a JSON Web token to determine if the expiration 
 request was successful and to decode the new expiration time in order to update the existing cookie in Cookie based authentication.  
 This is the same endpoint that is used by External Services or Non Cookie based applications to decode the authenticated user using JSON Web tokens.
+
+```
+https://hexaeight-sso-platform.p.rapidapi.com/get-cookieuser
+```
+
+The code snippets on how to use these EndPoints for various languages is available [HERE](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform)
+
 
 * * *
 
