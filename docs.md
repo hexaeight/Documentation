@@ -236,10 +236,10 @@ And your custom login page should be ready.
 > The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml 
 > where as the above servername setting is the subdomain where this custom login page is being displayed.
 
-Remember that even though Cloudflare Worker is deployed for all subdomains under yourdomain.dom, with the path ending in /login followed by anything 
+Remember that Cloudflare Worker is deployed for all subdomains under yourdomain.dom Any url with the path ending in /login followed by anything 
 is intercepted by the worker as shown below,
 
-So any subdomain can be protected by deploying a custom login page and invoking our quickauth script which uses the /login to initiate the login page protection.
+So any subdomain can be protected by deploying a custom login page and invoking our quickauth script which uses the /login to initiate the page protection.
 
 ```
 *.hexaeight.com/login*
