@@ -1,3 +1,6 @@
+* TOC
+{:toc}
+
 # HexaEight Serverless
 
 ## Deploy On CloudFlare Worker
