@@ -145,15 +145,17 @@ HexaEight `Fetch Cookie User` API Endpoint
 
 The code snippets to implement Fetch Cookie User for various languages is available [HERE](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform)
 
->        { iss : auth.hexaeight.com, 
->        user: user@domain.dom,
->        state : User Authenticated Successfully,
->        clientcodechallenge : xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA,
->        securetext: HexaEight Default Login  Application version 1.6.8,
->        aud : rapidapiuser,
->        iat : 27301399,
->        nbf: 1638083923,
->        exp: 27301459}
+```js
+{ iss : auth.hexaeight.com, 
+user: user@domain.dom,
+state : User Authenticated Successfully,
+clientcodechallenge : xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA,
+securetext: HexaEight Default Login  Application version 1.6.8,
+aud : rapidapiuser,
+iat : 27301399,
+nbf: 1638083923,
+exp: 27301459}
+```
 
 The above decrypted information is available after a successful call to `Fetch Cookie User` EndPoint
 
