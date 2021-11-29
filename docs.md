@@ -212,10 +212,10 @@ LoginBlocked : User was valid but blocked because Email Domain Filter was active
 CookieExtensionSuccess : JWT insode the cookie was extended successfully by one hour.
 ```
 
-> Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, 
-> will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will
-> never be able to see any Log of unauthorizied user attempts without email addresses since our platform handles it and 
-> doesent even let that request reach your Domain.
+> #### Security Note: A user who tries to login with a wrong password into HexaEight Serverless residing in your domain, 
+> #### will not even be able to generate an encrypted token, since our Platform will detect this and block the user, hence you will
+> #### never be able to see any Log of unauthorizied user attempts without email addresses since our platform handles it and 
+> #### doesent even let that request reach your Domain.
 
 * * *
 
@@ -244,7 +244,7 @@ And your custom login page should be ready.
 ***Important***
 
 
-#### The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml where as the above servername setting is the subdomain where this custom login page is being displayed.
+#### The default loginpage is served under login.yourdomain.dom by the setting in wranger.toml where as the above servername setting is the subdomain where the custom login page is being displayed.
 
 Remember that Cloudflare Worker is deployed for all subdomains under yourdomain.dom Any url with the path ending in /login followed by anything 
 is intercepted by the worker as shown below,
