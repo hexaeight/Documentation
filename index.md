@@ -97,13 +97,26 @@ The code snippets on how to use these EndPoints for various languages is availab
 
 * * *
 
+
 # [HexaEight Serverless](/serverless.md)
+
+
+
+* * *  
+ 
+ 
+
+
 
 
 # [HexaEight Token Service]
     
+
 **Coming Soon**
 
+* * *
+ 
+ 
 
 # Understanding DataSinks
 
