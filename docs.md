@@ -207,11 +207,22 @@ Categories:
 At times you may want to customize your login page to include alternate login options along with HexaEight Authentication. 
 If you wish to implement your own login page design, you can do so by following the below guidelines.
 
+```js
+			<div id="display-hexaeight-qrcode"></div>
+			<div id="display-hexaeight-qrcodeid"></div>
+			<button id="login-hexaeight-button">Login</button>
+           <button id="scan-hexaeight-qrcode">Scan QR Code</button> <br/>
+```
+
+```js
+<script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="login.yourdomain.dom" path="/" redirecturl="/loginsuccess" clientappcode="your client id" datasinkprotocol="https" datasinkurl="login.yourdomain.dom/login/sink"></script>
+```
+
 We have already designed a [Sample login page](https://demo.hexaeight.com/cf-login.html) to show case this capability.  
 You can follow the same and implement your own login page.
 
 This sample login page is also available at 
-[HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub under LoginPageSample
+[HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub under loginpagesample
 
 * * *
 
