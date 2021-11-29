@@ -1,6 +1,3 @@
-* TOC
-{:toc}
-
 # HexaEight Authentication
 
 ## Introduction
