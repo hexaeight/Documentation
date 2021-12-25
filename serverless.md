@@ -224,9 +224,12 @@ The next set of environment variables are used for specific customization in you
 
 ##### cookiedomain (Optional)
 
+Custom Cookie Domain Example : .vercel.hexaeight.com
+Cookie Domain Example (When this environment variable is not configured) : .hexaeight-serverless-push.vercel.app
+
 Our Authentication template by default uses vercel provided domain name as cookie domain name. Our Authentication template sets same site http cookies in your domain post user authentication.  
-If this environment variable is not configured, the default cookie domain used will be the domain name that was configured when you deployed our template. The value used for this
-environment variable is derived from the below Vercel system environment variable (Cookie Domain Example : .vercel.hexaeight.com) if its not configured
+If this environment variable is not configured, the default cookie domain used will be your git hub repo slug that was used when you deployed our template. The value used for this
+environment variable is derived from the below Vercel system environment variable if its not configured
 
 "." + process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG  + '.vercel.app';
 
