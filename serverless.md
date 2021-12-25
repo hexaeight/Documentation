@@ -149,10 +149,10 @@ to create a low cost Key Value store on the Edge that allows for exchanging toke
 
 If you wish to use Macrometa private datasink you should set the value of this variable to YES
 
-You can sign up for an account @ https://auth.paas.macrometa.io/signup
+You can sign up for an account from [here](https://auth.paas.macrometa.io/signup)
 
 ```
-(Disclaimer:  We have no affliation with Macrometa. We are actively scanning and will support any private sink provider that provides a low cost Key value store like Macrometa and allow Swagger API to access the key value store)
+Disclaimer:  We have no affliation with Macrometa. We are actively scanning and will support any private sink provider that provides a low cost Key value store like Macrometa and allow Swagger API to access the key value store
 ```
 
 ##### usemacrometakvapikey (Optional)
@@ -163,7 +163,9 @@ If you have already signed up in Macrometa platform, you can create an API key b
 
 Account (Left Hand Pane ) / Api Keys (Right Hand Top Pane) / New Api Key (Left Hand Second Top Pane)
 
-``` Give a name for your key and click the Create button```
+``` 
+Give a name for your key and click the Create button
+```
 
 You will be prompted to copy your key since it wont be displayed again.
 Copy this key and use it in this environment variable.
@@ -176,7 +178,9 @@ Macrometa allows you to create a key value collection name using their dashboard
 
 Collections (Left Hand Pane ) /  New Collection (Left Hand Second Top Pane) / Key-Value Store 
 
-``` Give a name for your datasink, ensure that the expiration is turned ON, ensure Enable Stream is not clicked and click the Create button```
+```
+Give a name for your datasink, ensure that the expiration is turned ON, ensure Enable Stream is not clicked and click the Create button
+```
 
 Use the above datasink name for this variable.
 
@@ -187,7 +191,9 @@ This completes the configuration required on Macrometa and you can safely logout
 In order to understand subsequent environment variables, you must understand the location these environment variables are used.
 Our [default login page](https://vercel.hexaeight.com/login/loginpage) uses a script tag. An Exmaple script tag is shown below for reference.
 
-``` <script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="myverceldomainname.dom" path="/" redirecturl="/loginsuccess" clientappcode="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=" datasinkprotocol="https" datasinkurl="myverceldomainname.dom/login/sink"></script> ```
+```js
+<script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="myverceldomainname.dom" path="/" redirecturl="/loginsuccess" clientappcode="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=" datasinkprotocol="https" datasinkurl="myverceldomainname.dom/login/sink"></script>
+```
 
 The clientappcode which was discussed earlier is also used in the above script tag.
 
