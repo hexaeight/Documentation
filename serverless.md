@@ -76,7 +76,7 @@ This Authentication is also available as an Integration On Vercel Platform.
 
 ### Detailed Instructions
 
-In this section, we will provide detailed information related to our implementation of authentication inside this next.js project template
+In this section, we will provide detailed information related to our implementation details inside this next.js project template
 
 #### How Does Our Authentication Work
 
@@ -453,3 +453,5 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
+
+
