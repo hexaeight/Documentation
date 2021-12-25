@@ -245,9 +245,11 @@ you must set this environment variable to YES and configure the environment vari
 
 ##### emaildomainslist (Optional)
 
-Allowed Values : List of email domains in single quotes seperated by comma as shown below
+Allowed Values : List of email domains in single quotes seperated by comma and the entire list enclosed in double quotes as shown below
 
+```
 "'gmail.com','facebook.com','yahoo.com','mydomain.com'"
+```
 
 This environment variable is used to limit the email domains from users are allowed to login to your application.
 
