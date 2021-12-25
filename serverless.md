@@ -226,7 +226,7 @@ The next set of environment variables are used for specific customization in you
 
 Our Authentication template by default uses vercel provided domain name as cookie domain name. Our Authentication template sets same site http cookies in your domain post user authentication.  
 If this environment variable is not configured, the default cookie domain used will be the domain name that was configured when you deployed our template. The value used for this
-environment variable is derived from the below Vercel system environment variable (Cookie Domain Example : .vercel.hexaeight.com)
+environment variable is derived from the below Vercel system environment variable (Cookie Domain Example : .vercel.hexaeight.com) if its not configured
 
 "." + process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG  + '.vercel.app';
 
@@ -239,7 +239,7 @@ If this environment variable is not configured or set to NO, then a domain filte
 By default our Authentication template has the capability to authenticate any email address from any domain.  However if you want to limit the authenticated users to specific email domains, then
 you must set this environment variable to YES and configure the environment variable emaildomainslist which contains the list of allowed email domains.
 
-##### emaildomainsfilter (Optional)
+##### emaildomainslist (Optional)
 
 Allowed Values : List of email domains in single quotes seperated by comma as shown below
 
