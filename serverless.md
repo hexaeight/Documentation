@@ -292,7 +292,7 @@ How To Deploy
 
 * * *
 
-## CF Worker Metrics
+### CF Worker Metrics
 
 Cloud Flare Workers allow limited execution of Workers under the Free Plan and unlimited execution in the Paid Plan 
 however it is important to understand the number of times a worker is called to complete HexaEight login process.
@@ -376,7 +376,7 @@ Additional Information about EndPoints is availabe in the EndPoints Section on t
 
 * * *
 
-## CF Audit Logs
+### CF Audit Logs
 
 HexaEight Serverless logs the email address of any user who attempts to login to your application in a KV namespace on 
 CloudFlare called AUDITLogs.  These logs are stoed as Key value pairs have a default ttl expiry of 1 week after which they 
