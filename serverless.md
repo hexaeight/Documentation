@@ -251,7 +251,7 @@ Allowed Values : List of email domains in single quotes seperated by comma and t
 "'gmail.com','facebook.com','yahoo.com','mydomain.com'"
 ```
 
-This environment variable is used to limit the email domains from users are allowed to login to your application.
+This environment variable is used by our authentication template to only allow only email users belonging to the above list of email domains to login to your application.
 
 Note: Our authentication template does not implement the authorization aspect, it the responsibility of the developer to implement authorization logic post our authentication.
 
