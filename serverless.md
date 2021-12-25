@@ -269,7 +269,9 @@ Allowed Values : ENABLED/DISABLED
 
 The default setting for this environment variable is enabled.  By defaut our authentication template captures logs and writes them to the console like shown below
 
-``` 1640411432678:LoginSuccess:user@domain.com:{"iss":"auth.hexaeight.com","user":"user@domain.com","state":"User Authenticated Successfully","clientcodechallenge":"37HWGJbiZFQ8siYy0HEcV2g0zCYJp7VLwHzH2GEMsto","securetext":"My Serverless Test Login Application v 1.0","aud":"rapidapiuser","iat":27340190,"nbf":"1640411425","exp":27340250}Capturedby:HexaEight Serverless ```
+```
+1640411432678:LoginSuccess:user@domain.com:{"iss":"auth.hexaeight.com","user":"user@domain.com","state":"User Authenticated Successfully","clientcodechallenge":"37HWGJbiZFQ8siYy0HEcV2g0zCYJp7VLwHzH2GEMsto","securetext":"My Serverless Test Login Application v 1.0","aud":"rapidapiuser","iat":27340190,"nbf":"1640411425","exp":27340250}Capturedby:HexaEight Serverless
+```
 
 Since vercel platform does not store any logs, you can only view these captured logs at run time by accessing the Function logs from Vercel Dashboard.
 
@@ -465,5 +467,3 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
-
-
