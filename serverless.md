@@ -23,6 +23,7 @@ of the index.js default page. Only upon successful authentication, you will be a
 
 This template has baked in the authentication code in the following files.
 
+```
 > /next.config.js - Rewrites all requests ending with /login to /api/loginpage
 >
 > /pages/api/loginpage.js - Contains HexaEight Serverless Server Side Code Base which authenticates any email user
@@ -30,6 +31,7 @@ This template has baked in the authentication code in the following files.
 > /pages/_app.js - Implements automatic Silent refresh of user session using setinterval function.
 >
 > /pages/_middleware.ts - The middleware typescript function which redirects the user to login page if the user session has expired
+```
 
 Developers are free to add their own code into the above files to implement any additional logic required for their project.
 
