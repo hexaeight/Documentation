@@ -49,12 +49,13 @@ A Free Plan is available if you want to test the authentication. Once you have s
 [Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
 Copy your API Key 
  
-Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using RAPID API Key
+Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using your RAPID API Key
 
-Change the Rapid API Key and change the data field to reflect your application name.  This application name is for your internal use to identify
-the login page from which the user got authenticated.  This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps)
-This Client ID is tied to the Rapid API user account, so you can only decode the tokens for this Client ID using the same API keys associated with 
-your Rapid API user account.
+Before you execute the below commands you should replace "your rapid api key" with the key you copied from the previous step
+
+Also change the application name to desired description of your choice. This application name is used to identify the orign of authentication for your authenticated users.
+This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps) This Client ID is tied to the Rapid API user account, so you can only decode the tokens 
+for this Client ID using the same API keys associated with your Rapid API user account.
 
 From Unix Or Mac using Shell
     curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
