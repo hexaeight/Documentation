@@ -188,7 +188,7 @@ Our [default login page](https://vercel.hexaeight.com/login/loginpage) uses a sc
 
 ``` <script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="myverceldomainname.dom" path="/" redirecturl="/loginsuccess" clientappcode="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=" datasinkprotocol="https" datasinkurl="myverceldomainname.dom/login/sink"></script> ```
 
->##### The clientappcode which was discussed earlier is also used in this script tag.
+The clientappcode which was discussed earlier is also used in the above script tag.
 
 ##### servername (Optional)
 
@@ -452,3 +452,5 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
+
+
