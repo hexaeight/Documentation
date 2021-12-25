@@ -225,6 +225,7 @@ The next set of environment variables are used for specific customization in you
 ##### cookiedomain (Optional)
 
 Custom Cookie Domain Example : .vercel.hexaeight.com
+
 Cookie Domain Example (When this environment variable is not configured) : .hexaeight-serverless-push.vercel.app
 
 Our Authentication template by default uses vercel provided domain name as cookie domain name. Our Authentication template sets same site http cookies in your domain post user authentication.  
