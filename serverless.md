@@ -288,8 +288,8 @@ in your Cloud Flare Account.
 
 **Limitations:  CloudFlare current does not support registering only a subdomain 
 as this feature is limited to Enterprise customers as such you can deploy HexaEight 
-Serverless only for Top level domains and not subdomains. We are aware of this limitation 
-and agressively working towards make HexaEight Serverless available on other Cloud Providers.**
+Serverless only for Top level domains and not subdomains. If you need to support
+subdomain, you should consider deploying on other providers like vercel which support subdomains.**
 
 How To Deploy 
 
@@ -467,3 +467,5 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
+
+
