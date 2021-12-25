@@ -42,35 +42,35 @@ This Authentication template is specific to Vercel Deployment and requires the f
     clientappcode
 
 
-    Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
+Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
 
-        A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
-        @
-        [Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
-        Copy your API Key 
+A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
+@
+[Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
+Copy your API Key 
  
-    Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using RAPID API Key
+Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using RAPID API Key
 
-        Change the Rapid API Key and change the data field to reflect your application name.  This application name is for your internal use to identify
-        the login page from which the user got authenticated.  This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps)
-        This Client ID is tied to the Rapid API user account, so you can only decode the tokens for this Client ID using the same API keys associated with 
-        your Rapid API user account.
+Change the Rapid API Key and change the data field to reflect your application name.  This application name is for your internal use to identify
+the login page from which the user got authenticated.  This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps)
+This Client ID is tied to the Rapid API user account, so you can only decode the tokens for this Client ID using the same API keys associated with 
+your Rapid API user account.
 
-        From Unix Or Mac using Shell
-            curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
+From Unix Or Mac using Shell
+    curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
 
-        OR
+OR
 
-        From Windows using Powershell
-            $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
-            $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
+From Windows using Powershell
+    $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
+    $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
 
 
-    You can use the below Button to Deploy on Vercel Platform.
+You can use the below Button to Deploy on Vercel Platform.
 
-    [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
 
-    This Authentication is also available as an Integration On Vercel Platform.
+This Authentication is also available as an Integration On Vercel Platform.
 
 ### Detailed Instructions
 
@@ -131,7 +131,7 @@ service to proceed to gather user specific information using the user email addr
 
 The clientappcode provides greater security when you pass JSON Web Tokens across microservices that provides them the capabiity to verify the origin of the authentication before processing the request.
 
-#### usemacrometakv (Optional)
+##### usemacrometakv (Optional)
 
 Allowed Values : YES/NO
 
@@ -153,7 +153,7 @@ You can sign up for an account @ https://auth.paas.macrometa.io/signup
 (Disclaimer:  We have no affliation with Macrometa. We are actively scanning and will support any private sink provider that provides a low cost Key value store like Macrometa and allow Swagger API to access the key value store)
 ```
 
-#### usemacrometakvapikey (Optional)
+##### usemacrometakvapikey (Optional)
 
 Allowed Values : Macrometa API Key
 
@@ -166,7 +166,7 @@ Account (Left Hand Pane ) / Api Keys (Right Hand Top Pane) / New Api Key (Left H
 You will be prompted to copy your key since it wont be displayed again.
 Copy this key and use it in this environment variable.
 
-#### usemacrometakvsinkname (Optional)
+##### usemacrometakvsinkname (Optional)
 
 Allowed Values : Macrometa Key Value Collection name
 
@@ -180,26 +180,27 @@ Use the above datasink name for this variable.
 
 This completes the configuration required on Macrometa and you can safely logout from Macrometa site.
 
+* * *
 
->##### In order to understand subsequent environment variables, you must understand the location these environment variables are used.
->##### Our [default login page](https://vercel.hexaeight.com/login/loginpage) uses a script tag. An Exmaple script tag is shown below for reference.
+In order to understand subsequent environment variables, you must understand the location these environment variables are used.
+Our [default login page](https://vercel.hexaeight.com/login/loginpage) uses a script tag. An Exmaple script tag is shown below for reference.
 
 ``` <script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="myverceldomainname.dom" path="/" redirecturl="/loginsuccess" clientappcode="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=" datasinkprotocol="https" datasinkurl="myverceldomainname.dom/login/sink"></script> ```
 
 >##### The clientappcode which was discussed earlier is also used in this script tag.
 
-#### servername (Optional)
+##### servername (Optional)
 
 This environment variable refers to the custom domain name if you have configured custom domains feature. If you have not confirgured custom domain name,
 do not set this environment variable which will force the script to use your Vercel github repo slug (system environment variable in Vercel) followed by .vercel.app as the servername
 
 process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG  + '.vercel.app'
 
-#### datasinkprotocol (Optional)
+##### datasinkprotocol (Optional)
 
 This environment variable contains the protocol to be used while accessing the datasink by the HexaEight Mobile App that uses the Datasink to transfer the authenticated token
 
-#### datasink (Optional)
+##### datasink (Optional)
 
 This environment variable contains the datasink host that is used to transfer the authentication token. If this environment variable is not configured, it uses 
 api.cl1p.net as the datasink host name.
@@ -208,11 +209,12 @@ If you are using Macrometa Datasink, then this environment variable should point
 
 The datasinkurl in the above script tag uses datasink environment variable to automatically build the datasinkurl value.
 
+* * *
 
-##### The next set of environment variables are used for specific customization in your environment.
+The next set of environment variables are used for specific customization in your environment.
 
 
-#### cookiedomain (Optional)
+##### cookiedomain (Optional)
 
 Our Authentication template by default uses vercel provided domain name as cookie domain name. Our Authentication template sets same site http cookies in your domain post user authentication.  
 If this environment variable is not configured, the default cookie domain used will be the domain name that was configured when you deployed our template. The value used for this
@@ -220,7 +222,7 @@ environment variable is derived from the below Vercel system environment variabl
 
 "." + process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG  + '.vercel.app';
 
-#### emaildomainsfilter (Optional)
+##### emaildomainsfilter (Optional)
 
 Allowed Values : NO/YES
 
@@ -229,7 +231,7 @@ If this environment variable is not configured or set to NO, then a domain filte
 By default our Authentication template has the capability to authenticate any email address from any domain.  However if you want to limit the authenticated users to specific email domains, then
 you must set this environment variable to YES and configure the environment variable emaildomainslist which contains the list of allowed email domains.
 
-#### emaildomainsfilter (Optional)
+##### emaildomainsfilter (Optional)
 
 Allowed Values : List of email domains in single quotes seperated by comma as shown below
 
@@ -239,7 +241,7 @@ This environment variable is used to limit the email domains from users are allo
 
 Note: Our authentication template does not implement the authorization aspect, it the responsibility of the developer to implement authorization logic post our authentication.
 
-#### bottomlogo (Optional)
+##### bottomlogo (Optional)
 
 Allowed Values : URL pointing to a custom image
 
@@ -247,7 +249,7 @@ By default our [default login page](https://vercel.hexaeight.com/login/loginpage
 
 You can set this environment variable to point to your custom logo, for example your company logo or product logo instead of the lock.
 
-#### auditing (Optional)
+##### auditing (Optional)
 
 Allowed Values : ENABLED/DISABLED
 
