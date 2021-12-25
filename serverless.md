@@ -72,7 +72,8 @@ Once you have the RapidAPIKey and Clientcode, you can use the below Button to De
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
 
-This Authentication is also available as an Integration On Vercel Platform.
+![Watch a Quick Video on How To Deploy HexaEight Authentication Template On Vercel Platform](https://youtu.be/mx24R8xnNlY)
+
 
 ### Detailed Instructions
 
