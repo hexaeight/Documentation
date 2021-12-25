@@ -24,57 +24,53 @@ of the index.js default page. Only upon successful authentication, you will be a
 This template has baked in the authentication code in the following files.
 
 ```
-> /next.config.js - Rewrites all requests ending with /login to /api/loginpage
->
-> /pages/api/loginpage.js - Contains HexaEight Serverless Server Side Code Base which authenticates any email user
->
-> /pages/_app.js - Implements automatic Silent refresh of user session using setinterval function.
->
-> /pages/_middleware.ts - The middleware typescript function which redirects the user to login page if the user session has expired
-```
+/next.config.js - Rewrites all requests ending with /login to /api/loginpage
 
+/pages/api/loginpage.js - Contains HexaEight Serverless Server Side Code Base which authenticates any email user
+
+/pages/_app.js - Implements automatic Silent refresh of user session using setinterval function.
+
+/pages/_middleware.ts - The middleware typescript function which redirects the user to login page if the user session has expired
+```
 Developers are free to add their own code into the above files to implement any additional logic required for their project.
 
 ### Quick Start
 
 This Authentication template is specific to Vercel Deployment and requires the following for HexaEight Serverless to start authenticating users.
 
->
-> RapidAPIKey 
->
-> clientappcode
->
-
-###### Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
-
-A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
-@
-[Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
-Copy your API Key 
-
-  
-###### Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using RAPID API Key hosted by CF Worker
-
-Input the Rapid API Key and change the data field to reflect your application name.  This application name is for your internal use to identify
-the login page from which the user got authenticated.  This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps)
-This Client ID is tied to the Rapid API user account, so you can only decode the tokens for this Client ID using the same API keys associated with 
-your Rapid API user account.
-
-###### From Unix Or Mac using Shell
->     curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
-
-OR
-
-###### From Windows using Powershell
->     $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
->     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
+    RapidAPIKey 
+    clientappcode
 
 
-You can use the below Button to Deploy on Vercel Platform.
+    Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
+        A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
+        @
+        [Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
+        Copy your API Key 
+ 
+    Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using RAPID API Key
 
-This Authentication is also available as an Integration On Vercel Platform.
+        Change the Rapid API Key and change the data field to reflect your application name.  This application name is for your internal use to identify
+        the login page from which the user got authenticated.  This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps)
+        This Client ID is tied to the Rapid API user account, so you can only decode the tokens for this Client ID using the same API keys associated with 
+        your Rapid API user account.
+
+        From Unix Or Mac using Shell
+            curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
+
+        OR
+
+        From Windows using Powershell
+            $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
+            $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
+
+
+    You can use the below Button to Deploy on Vercel Platform.
+
+    [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
+
+    This Authentication is also available as an Integration On Vercel Platform.
 
 ### Detailed Instructions
 
@@ -453,5 +449,3 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
-
-
