@@ -82,14 +82,14 @@ In this section, we will provide detailed information related to our implementat
 
 When you visit your vercel site after deploying our template,
 
-> 1. The middleware typescript (pages/_middleware.ts) intercepts all requests served under pages and redirects the user to login page (/login/loginpage) if the user is not authenticated.
-> 2. This file /next.config.js rewrites all requests ending with /login and followed by any suffix to be redirected to /api/loginpage.js
-> 3. This file /pages/api/login.js contains the logic to authenticate email users. If the user is not authenticated, a login page with a QR Code is displayed to the user.
-> 4. The user will need to install [HexaEight Authenticator Mobile App](https://www.hexaeight.com/mobile.html) on their mobile and create a digital token for his/her email id and then use the digital token to scan the above QR Code
-> 5. Once the user is successfully authenticated, the middleware typescript (pages/_middleware.ts) will redirect the user to the requested page.
-> 6. When the user is authenticated, three cookies that contain the user information is available on the Server Side which means these cookies are availble to your Server Side Code usually implemented in /api folder 
-> 7. One of these cookies contain a JSON Web Token that contain the user information,  however the HexaEight Secure Platform issues JSON Web Token by default only for an hour, hence these cookies will also expire the user session in an hour.
-> 8. In order to keep the user session active after an hour, this JSON Web token will need to be exchanged in our platform with a new token which will extend the user session by another hour. This file /pages/_app.js implements this automatic Silent refresh of user session using setinterval function every 3 minutes 
+ 1. The middleware typescript (pages/_middleware.ts) intercepts all requests served under pages and redirects the user to login page (/login/loginpage) if the user is not authenticated.
+ 2. This file /next.config.js rewrites all requests ending with /login and followed by any suffix to be redirected to /api/loginpage.js
+ 3. This file /pages/api/login.js contains the logic to authenticate email users. If the user is not authenticated, a login page with a QR Code is displayed to the user.
+ 4. The user will need to install [HexaEight Authenticator Mobile App](https://www.hexaeight.com/mobile.html) on their mobile and create a digital token for his/her email id and then use the digital token to scan the above QR Code
+ 5. Once the user is successfully authenticated, the middleware typescript (pages/_middleware.ts) will redirect the user to the requested page.
+ 6. When the user is authenticated, three cookies that contain the user information is available on the Server Side which means these cookies are availble to your Server Side Code usually implemented in /api folder 
+ 7. One of these cookies contain a JSON Web Token that contain the user information,  however the HexaEight Secure Platform issues JSON Web Token by default only for an hour, hence these cookies will also expire the user session in an hour.
+ 8. In order to keep the user session active after an hour, this JSON Web token will need to be exchanged in our platform with a new token which will extend the user session by another hour. This file /pages/_app.js implements this automatic Silent refresh of user session using setinterval function every 3 minutes 
 
 Developers will only need to copy _middleware.ts into any subfolder under pages directory  in order to protect these pages servered under subfolders and redeploy the project.
 
