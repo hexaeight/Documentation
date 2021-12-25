@@ -104,7 +104,7 @@ Documentation related to HexaEight Serverless is available [HERE](/serverless.md
 
 ### Deploy HexaEight Serverless On Vercel Platform
 
-Documentation on how to integrate our Authentication using Next.js project is available [HERE](/serverless.md#quick-start)
+Documentation on how to integrate our Authentication using Next.js project is available [HERE](/serverless.md#deploy-on-vercel-platform-zeit)
 
 ### Deploy HexaEight Serverless On CloudFlare Workers
 
