@@ -18,7 +18,7 @@ with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/
 email user.  Since the authentication code base is already baked into this template, there is no need for developers to write a single line
 of code to integrate authentication for their Next.js Project.
 
-This integration when deployed successfully on Vercel Platform, automatically displays a login page when you visit the vercel site instead
+This integration when deployed successfully on Vercel Platform, automatically displays a [login page](https://vercel.hexaeight.com) when you visit the vercel site instead
 of the index.js default page. Only upon successful authentication, you will be able to access the default index.js page.
 
 This template has baked in the authentication code in the following files.
@@ -36,7 +36,7 @@ Developers are free to add their own code into the above files to implement any 
 
 ### Quick Start
 
-This Authentication template is specific to Vercel Deployment and requires the following for HexaEight Serverless to start authenticating users.
+This Authentication template is specific to Vercel Deployment and requires the following environment variables for HexaEight Serverless to start authenticating users.
 
     RapidAPIKey 
     clientappcode
@@ -68,7 +68,7 @@ From Windows using Powershell
     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
 
 
-You can use the below Button to Deploy on Vercel Platform.
+Once you have the RapidAPIKey and Clientcode, you can use the below Button to Deploy our Authentication template on Vercel Platform.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
 
@@ -453,5 +453,3 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
-
-
