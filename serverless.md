@@ -46,8 +46,7 @@ Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.co
 
 A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
 @
-[Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
-Copy your API Key 
+[Rapid API Dashboard](https://rapidapi.com/developer/dashboard) / Choose the default application / Security on the left hand pane / Application Key / Copy your API Key 
  
 Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using your RAPID API Key
 
@@ -58,11 +57,13 @@ This output of this is a Client ID (similar to Oauth Client ID which is used to 
 for this Client ID using the same API keys associated with your Rapid API user account.
 
 From Unix Or Mac using Shell
+    
     curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
 
 OR
 
 From Windows using Powershell
+
     $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
 
