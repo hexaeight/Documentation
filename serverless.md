@@ -3,6 +3,267 @@
 
 # HexaEight Serverless
 
+## Serverless Authentication Flow
+
+![Authentication Flow](https://www.hexaeight.com/assets/images/hexaeight-quick-authentication-836x441.png)
+
+
+## Deploy On Vercel Platform (ZEIT)
+
+This is a [Next.js](https://nextjs.org/) cloned project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+HexaEight Server Side Code base is now integrated in a [Next.js](https://nextjs.org/) cloned project bootstrapped 
+with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) that has the capability to authenticate any 
+email user.  Since the authentication code base is already baked into this template, there is no need for developers to write a single line
+of code to integrate authentication for their Next.js Project.
+
+This integration when deployed successfully on Vercel Platform, automatically displays a login page when you visit the vercel site instead
+of the index.js default page. Only upon successful authentication, you will be able to access the default index.js page.
+
+This template has baked in the authentication code in the following files.
+
+> /next.config.js - Rewrites all requests ending with /login to /api/loginpage
+>
+> /pages/api/loginpage.js - Contains HexaEight Serverless Server Side Code Base which authenticates any email user
+>
+> /pages/_app.js - Implements automatic Silent refresh of user session using setinterval function.
+>
+> /pages/_middleware.ts - The middleware typescript function which redirects the user to login page if the user session has expired
+
+Developers are free to add their own code into the above files to implement any additional logic required for their project.
+
+### Quick Start
+
+This Authentication template is specific to Vercel Deployment and requires the following for HexaEight Serverless to start authenticating users.
+
+>
+> RapidAPIKey 
+>
+> clientappcode
+>
+
+###### Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
+
+A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
+@
+[Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
+Copy your API Key 
+
+  
+###### Run the below command to Generate a New Client App Code (or Client ID) for your Login Application using RAPID API Key hosted by CF Worker
+
+Input the Rapid API Key and change the data field to reflect your application name.  This application name is for your internal use to identify
+the login page from which the user got authenticated.  This output of this is a Client ID (similar to Oauth Client ID which is used to identify Apps)
+This Client ID is tied to the Rapid API user account, so you can only decode the tokens for this Client ID using the same API keys associated with 
+your Rapid API user account.
+
+###### From Unix Or Mac using Shell
+>     curl --header 'x-rapidapi-key: your rapidapi key' --data 'Default Login Application v 1.0' --request POST --url https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken --header 'content-type: text/plain' --header 'x-rapidapi-host: hexaeight-sso-platform.p.rapidapi.com'
+
+OR
+
+###### From Windows using Powershell
+>     $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
+>     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
+
+
+You can use the below Button to Deploy on Vercel Platform.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHexaEightTeam%2FHexaeight-Auth-Nextjs-Vercel-template&env=clientappcode,RapidAPIKey&envDescription=Client%20ID%20used%20for%20identifying%20the%20login%20application%20authenticating%20your%20users%20And%20the%20API%20Key%20used%20to%20fetch%20identity%20information%20of%20user&envLink=https%3A%2F%2Fdocs.hexaeight.com%2Fserverless.html)
+
+This Authentication is also available as an Integration On Vercel Platform.
+
+### Detailed Instructions
+
+In this section, we will provide detailed information related to our implementation of authentication inside this next.js project template
+
+#### How Does Our Authentication Work
+
+When you visit your vercel site after deploying our template,
+
+> 1. The middleware typescript (pages/_middleware.ts) intercepts all requests served under pages and redirects the user to login page (/login/loginpage) if the user is not authenticated.
+> 2. This file /next.config.js rewrites all requests ending with /login and followed by any suffix to be redirected to /api/loginpage.js
+> 3. This file /pages/api/login.js contains the logic to authenticate email users. If the user is not authenticated, a login page with a QR Code is displayed to the user.
+> 4. The user will need to install [HexaEight Authenticator Mobile App](https://www.hexaeight.com/mobile.html) on their mobile and create a digital token for his/her email id and then use the digital token to scan the above QR Code
+> 5. Once the user is successfully authenticated, the middleware typescript (pages/_middleware.ts) will redirect the user to the requested page.
+> 6. When the user is authenticated, three cookies that contain the user information is available on the Server Side which means these cookies are availble to your Server Side Code usually implemented in /api folder 
+> 7. One of these cookies contain a JSON Web Token that contain the user information,  however the HexaEight Secure Platform issues JSON Web Token by default only for an hour, hence these cookies will also expire the user session in an hour.
+> 8. In order to keep the user session active after an hour, this JSON Web token will need to be exchanged in our platform with a new token which will extend the user session by another hour. This file /pages/_app.js implements this automatic Silent refresh of user session using setinterval function every 3 minutes 
+
+Developers will only need to copy _middleware.ts into any subfolder under pages directory  in order to protect these pages servered under subfolders and redeploy the project.
+
+
+
+#### Environment Variables
+
+Our authentication template by default requires only two environment variables to get started.  However there are other environment variables
+that can be configured to suit your environment. By default our template automatically gathers information about your site and sets default values for these variabbles. 
+
+Below we will explain in detail every environment variable used by our authentication template along with the information on how to customize them to suit your environment.
+
+##### RapidAPIKey (Required)
+
+This is your API Key that is required to perform universal authentication using HexaEight Secure Platform by verifying the Authentication token received from the user upon authentication.
+
+##### clientappcode (Required)
+
+This is the client ID provided by our platform that is used to identify if the orign of the authenticated user in external services.
+
+When the user is authenticated successfully a cookie is automatically available to your code which contains the email id of the logged in user.
+However if you want to use an internal or external service  that needs to provide data specific to the user, for example a proxy service which can validate the JWT 
+and fetch user specific data from a database and send it back, it would be easier for your to send the JSON Web token to the proxy service.
+
+Assume if you have developed the proxy service, then you can send a request to HexaEight Secure Platform to decode this JSON Web Token. A decoded webtoken contains the information as shown below
+
+```js
+{ iss : auth.hexaeight.com, 
+user: user@domain.dom,
+state : User Authenticated Successfully,
+clientcodechallenge : xqjIYBERvjcwjHcIGJ4ZkQUABHIwmSZm6z_OFtJE9OA,
+securetext: HexaEight Default Login  Application version 1.6.8,
+aud : rapidapiuser,
+iat : 27301399,
+nbf: 1638083923,
+exp: 27301459}
+```
+
+The securetext contains the application name that you used when you created the clientappcode. This allows your proxy service to verify the origin of authentication and allow the
+service to proceed to gather user specific information using the user email address and respond back with the request. 
+
+The clientappcode provides greater security when you pass JSON Web Tokens across microservices that provides them the capabiity to verify the origin of the authentication before processing the request.
+
+#### usemacrometakv (Optional)
+
+Allowed Values : YES/NO
+
+Our template by default uses a [Public Datasink](https://cl1p.net) to deploy HexaEight Serverless. This ensures you can get started with our authentication instantly without external dependancies
+If you want to continue using the public datasink, we recommend you purchase a customized url from the public datasink provider for a very low fee of $5 for an year and use our datasink environment variable to customize the location.
+
+If you wish to use the public datasink you should set the value of this variable to NO 
+
+In order to understand Datasinks in detail please visit our [Understanding DataSinks](https://docs.hexaeight.com/#understanding-datasinks) section
+
+Our Authentication template supports [Macrometa](https://www.macrometa.com) which provides the option
+to create a low cost Key Value store on the Edge that allows for exchanging tokens during authentication.
+
+If you wish to use Macrometa private datasink you should set the value of this variable to YES
+
+You can sign up for an account @ https://auth.paas.macrometa.io/signup
+
+```
+(Disclaimer:  We have no affliation with Macrometa. We are actively scanning and will support any private sink provider that provides a low cost Key value store like Macrometa and allow Swagger API to access the key value store)
+```
+
+#### usemacrometakvapikey (Optional)
+
+Allowed Values : Macrometa API Key
+
+If you have already signed up in Macrometa platform, you can create an API key by navigating to Macrometa Dashboard and accessing
+
+Account (Left Hand Pane ) / Api Keys (Right Hand Top Pane) / New Api Key (Left Hand Second Top Pane)
+
+``` Give a name for your key and click the Create button```
+
+You will be prompted to copy your key since it wont be displayed again.
+Copy this key and use it in this environment variable.
+
+#### usemacrometakvsinkname (Optional)
+
+Allowed Values : Macrometa Key Value Collection name
+
+Macrometa allows you to create a key value collection name using their dashboard. To create a Key value collection, navigate to Macrometa Dashboard and choose
+
+Collections (Left Hand Pane ) /  New Collection (Left Hand Second Top Pane) / Key-Value Store 
+
+``` Give a name for your datasink, ensure that the expiration is turned ON, ensure Enable Stream is not clicked and click the Create button```
+
+Use the above datasink name for this variable.
+
+This completes the configuration required on Macrometa and you can safely logout from Macrometa site.
+
+
+>##### In order to understand subsequent environment variables, you must understand the location these environment variables are used.
+>##### Our [default login page](https://vercel.hexaeight.com/login/loginpage) uses a script tag. An Exmaple script tag is shown below for reference.
+
+``` <script id="hexaeightclient" src="https://cdn.jsdelivr.net/gh/hexaeight/jslibrary/hexaeight-token-quickauth.js" servername="myverceldomainname.dom" path="/" redirecturl="/loginsuccess" clientappcode="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=" datasinkprotocol="https" datasinkurl="myverceldomainname.dom/login/sink"></script> ```
+
+>##### The clientappcode which was discussed earlier is also used in this script tag.
+
+#### servername (Optional)
+
+This environment variable refers to the custom domain name if you have configured custom domains feature. If you have not confirgured custom domain name,
+do not set this environment variable which will force the script to use your Vercel github repo slug (system environment variable in Vercel) followed by .vercel.app as the servername
+
+process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG  + '.vercel.app'
+
+#### datasinkprotocol (Optional)
+
+This environment variable contains the protocol to be used while accessing the datasink by the HexaEight Mobile App that uses the Datasink to transfer the authenticated token
+
+#### datasink (Optional)
+
+This environment variable contains the datasink host that is used to transfer the authentication token. If this environment variable is not configured, it uses 
+api.cl1p.net as the datasink host name.
+
+If you are using Macrometa Datasink, then this environment variable should point to the value in Servername environment variable shown above in order to post authentication tokens from the mobile app to your macrometa datasink.
+
+The datasinkurl in the above script tag uses datasink environment variable to automatically build the datasinkurl value.
+
+
+##### The next set of environment variables are used for specific customization in your environment.
+
+
+#### cookiedomain (Optional)
+
+Our Authentication template by default uses vercel provided domain name as cookie domain name. Our Authentication template sets same site http cookies in your domain post user authentication.  
+If this environment variable is not configured, the default cookie domain used will be the domain name that was configured when you deployed our template. The value used for this
+environment variable is derived from the below Vercel system environment variable (Cookie Domain Example : .vercel.hexaeight.com)
+
+"." + process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG  + '.vercel.app';
+
+#### emaildomainsfilter (Optional)
+
+Allowed Values : NO/YES
+
+If this environment variable is not configured or set to NO, then a domain filter is not enforced for your application.
+
+By default our Authentication template has the capability to authenticate any email address from any domain.  However if you want to limit the authenticated users to specific email domains, then
+you must set this environment variable to YES and configure the environment variable emaildomainslist which contains the list of allowed email domains.
+
+#### emaildomainsfilter (Optional)
+
+Allowed Values : List of email domains in single quotes seperated by comma as shown below
+
+"'gmail.com','facebook.com','yahoo.com','mydomain.com'"
+
+This environment variable is used to limit the email domains from users are allowed to login to your application.
+
+Note: Our authentication template does not implement the authorization aspect, it the responsibility of the developer to implement authorization logic post our authentication.
+
+#### bottomlogo (Optional)
+
+Allowed Values : URL pointing to a custom image
+
+By default our [default login page](https://vercel.hexaeight.com/login/loginpage) displays a lock at the bottom of the page. 
+
+You can set this environment variable to point to your custom logo, for example your company logo or product logo instead of the lock.
+
+#### auditing (Optional)
+
+Allowed Values : ENABLED/DISABLED
+
+The default setting for this environment variable is enabled.  By defaut our authentication template captures logs and writes them to the console like shown below
+
+``` 1640411432678:LoginSuccess:user@domain.com:{"iss":"auth.hexaeight.com","user":"user@domain.com","state":"User Authenticated Successfully","clientcodechallenge":"37HWGJbiZFQ8siYy0HEcV2g0zCYJp7VLwHzH2GEMsto","securetext":"My Serverless Test Login Application v 1.0","aud":"rapidapiuser","iat":27340190,"nbf":"1640411425","exp":27340250}Capturedby:HexaEight Serverless ```
+
+Since vercel platform does not store any logs, you can only view these captured logs at run time by accessing the Function logs from Vercel Dashboard.
+
+If you wish to capture logs for retention, set up [log drains](https://vercel.com/blog/log-drains) as discussed [here](https://vercel.com/support/articles/how-do-i-store-logs-on-vercel)
+
+
+* * *
+
 ## Deploy On CloudFlare Worker
 
 In order to install the Server Side Code base, you need access to your Cloud Flare account and have the ablility 
@@ -190,4 +451,5 @@ This above sample login page is also available at
 [HexaEight-Auth-CFWorker-Template](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template) on GitHub.
 
 * * *
+
 
