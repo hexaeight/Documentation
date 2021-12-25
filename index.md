@@ -102,6 +102,14 @@ The code snippets on how to use these EndPoints for various languages is availab
 
 Documentation related to HexaEight Serverless is available [HERE](/serverless.md).
 
+### Deploy HexaEight Serverless On Vercel Platform
+
+Documentation on how to integrate our Authentication using Next.js project is available [HERE](/serverless.md#quick-start)
+
+### Deploy HexaEight Serverless On CloudFlare Workers
+
+Documentation on how to integrate our Authentication using CloudFlare Worker is available [HERE](/serverless.md#deploy-on-cloudflare-worker)
+
 * * *  
  
 
