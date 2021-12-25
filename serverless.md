@@ -138,7 +138,7 @@ The clientappcode provides greater security when you pass JSON Web Tokens across
 Allowed Values : YES/NO
 
 Our template by default uses a [Public Datasink](https://cl1p.net) to deploy HexaEight Serverless. This ensures you can get started with our authentication instantly without external dependancies
-If you want to continue using the public datasink, we recommend you purchase a customized url from the public datasink provider for a very low fee of $5 for an year and use our datasink environment variable to customize the location.
+If you want to continue using the public datasink, we recommend you purchase a customized url from the public datasink provider for a very low fee ($5 per year) and use our [datasink](https://docs.hexaeight.com/serverless.html#datasink-optional) environment variable to customize the location.
 
 If you wish to use the public datasink you should set the value of this variable to NO 
 
