@@ -1,4 +1,5 @@
 theme: jekyll-theme-slate
+colors.background: #000000
 title: HexaEight Documentation
 description: Web Page
 show_downloads: false
