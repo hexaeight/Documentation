@@ -1,4 +1,4 @@
-theme: jekyll-theme-leap-day
+remote_theme:  pmarsceill/just-the-docs 
 title: HexaEight Documentation
 description: Web Page
 show_downloads: false
